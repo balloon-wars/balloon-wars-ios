@@ -20,6 +20,9 @@
 		7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */; };
 		7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */; };
 		94880C255167C5D7D4843E03 /* Pods_spitro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41E4174C401BD23891012D0 /* Pods_spitro.framework */; };
+		D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127A233184DB00B7E255 /* Subscriber.swift */; };
+		D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127C23318E4000B7E255 /* MenuViewController.swift */; };
+		D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F412802331913700B7E255 /* ConnectionFacade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointVectorExtensions.swift; sourceTree = "<group>"; };
 		B41E4174C401BD23891012D0 /* Pods_spitro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spitro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA45D37B8556BA9E115CDC45 /* Pods-spitro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.release.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.release.xcconfig"; sourceTree = "<group>"; };
+		D7F4127A233184DB00B7E255 /* Subscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
+		D7F4127C23318E4000B7E255 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		D7F412802331913700B7E255 /* ConnectionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFacade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +74,6 @@
 				106761A19F28949641BE77ED /* Pods-spitro.debug.xcconfig */,
 				CA45D37B8556BA9E115CDC45 /* Pods-spitro.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,16 +98,19 @@
 		7A6814992329728600A1BB2D /* spitro */ = {
 			isa = PBXGroup;
 			children = (
-				7A6814A72329728800A1BB2D /* Assets.xcassets */,
-				7A6814AC2329728800A1BB2D /* Info.plist */,
-				7A6814A42329728600A1BB2D /* Main.storyboard */,
-				7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */,
+				D7F41279233184CE00B7E255 /* networking */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
+				D7F412802331913700B7E255 /* ConnectionFacade.swift */,
+				D7F4127C23318E4000B7E255 /* MenuViewController.swift */,
 				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
 				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
 				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
 				7A6814A02329728600A1BB2D /* GameScene.swift */,
 				7A6814A22329728600A1BB2D /* GameViewController.swift */,
+				7A6814A42329728600A1BB2D /* Main.storyboard */,
+				7A6814AC2329728800A1BB2D /* Info.plist */,
+				7A6814A72329728800A1BB2D /* Assets.xcassets */,
+				7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */,
 				7A9ECD77232BDE3100212A1C /* Extensions */,
 			);
 			path = spitro;
@@ -116,6 +124,14 @@
 				7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D7F41279233184CE00B7E255 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				D7F4127A233184DB00B7E255 /* Subscriber.swift */,
+			);
+			path = networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +262,12 @@
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
+				D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */,
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
+				D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
+				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,
 				7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */,
 				7A6814B523297E9100A1BB2D /* TLAnalogJoystick.swift in Sources */,
 			);
@@ -398,7 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 373U5VR954;
+				DEVELOPMENT_TEAM = QM43B7QRF9;
 				INFOPLIST_FILE = spitro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -418,7 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 373U5VR954;
+				DEVELOPMENT_TEAM = QM43B7QRF9;
 				INFOPLIST_FILE = spitro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
