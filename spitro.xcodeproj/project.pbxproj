@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A3906272332BE7F00A765D4 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */; };
 		7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A68149A2329728600A1BB2D /* AppDelegate.swift */; };
 		7A6814A12329728600A1BB2D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6814A02329728600A1BB2D /* GameScene.swift */; };
 		7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6814A22329728600A1BB2D /* GameViewController.swift */; };
@@ -21,6 +22,7 @@
 		7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */; };
 		7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */; };
 		7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */; };
+		7ABFF0852332AE5B0058B918 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		94880C255167C5D7D4843E03 /* Pods_spitro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41E4174C401BD23891012D0 /* Pods_spitro.framework */; };
 		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
 		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
@@ -28,11 +30,11 @@
 		D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127A233184DB00B7E255 /* Subscriber.swift */; };
 		D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127C23318E4000B7E255 /* MenuViewController.swift */; };
 		D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F412802331913700B7E255 /* ConnectionFacade.swift */; };
-		7ABFF0852332AE5B0058B918 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		106761A19F28949641BE77ED /* Pods-spitro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.debug.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.debug.xcconfig"; sourceTree = "<group>"; };
+		7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		7A6814972329728600A1BB2D /* spitro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spitro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A68149A2329728600A1BB2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A6814A02329728600A1BB2D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -143,7 +145,7 @@
 				7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */,
 				7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */,
 				D70CFAF02332811400147700 /* StringExtensions.swift */,
-				7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */,
+				7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,7 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A6814A12329728600A1BB2D /* GameScene.swift in Sources */,
-				7ABFF0852332AE5B0058B918 /* UIDeviceExtensions.swift in Sources */,
+				7A3906272332BE7F00A765D4 /* UIDeviceExtensions.swift in Sources */,
+				7ABFF0852332AE5B0058B918 /* (null) in Sources */,
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
@@ -448,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QM43B7QRF9;
+				DEVELOPMENT_TEAM = 373U5VR954;
 				INFOPLIST_FILE = spitro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QM43B7QRF9;
+				DEVELOPMENT_TEAM = 373U5VR954;
 				INFOPLIST_FILE = spitro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
