@@ -14,6 +14,8 @@
 		7A6814A82329728800A1BB2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6814A72329728800A1BB2D /* Assets.xcassets */; };
 		7A6814AB2329728800A1BB2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */; };
 		7A6814B523297E9100A1BB2D /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */; };
+		7A9418F1233178960051F448 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9418F0233178960051F448 /* Model.swift */; };
+		7A9418F323317A290051F448 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9418F223317A290051F448 /* Classes.swift */; };
 		7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD68232BDB6500212A1C /* SKCameraController.swift */; };
 		7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */; };
 		7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */; };
@@ -26,6 +28,7 @@
 		D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127A233184DB00B7E255 /* Subscriber.swift */; };
 		D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127C23318E4000B7E255 /* MenuViewController.swift */; };
 		D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F412802331913700B7E255 /* ConnectionFacade.swift */; };
+		7ABFF0852332AE5B0058B918 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,8 @@
 		7A6814AA2329728800A1BB2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A6814AC2329728800A1BB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
+		7A9418F0233178960051F448 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7A9418F223317A290051F448 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		7A9ECD68232BDB6500212A1C /* SKCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCameraController.swift; sourceTree = "<group>"; };
 		7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCameraMode.swift; sourceTree = "<group>"; };
 		7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 				D7F41279233184CE00B7E255 /* networking */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
 				D7F4127C23318E4000B7E255 /* MenuViewController.swift */,
+				7A9418EF233177700051F448 /* Model */,
 				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
 				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
 				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
@@ -121,6 +127,15 @@
 			path = spitro;
 			sourceTree = "<group>";
 		};
+		7A9418EF233177700051F448 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A9418F0233178960051F448 /* Model.swift */,
+				7A9418F223317A290051F448 /* Classes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7A9ECD77232BDE3100212A1C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +143,7 @@
 				7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */,
 				7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */,
 				D70CFAF02332811400147700 /* StringExtensions.swift */,
+				7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,13 +284,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A6814A12329728600A1BB2D /* GameScene.swift in Sources */,
+				7ABFF0852332AE5B0058B918 /* UIDeviceExtensions.swift in Sources */,
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
 				D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */,
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
 				D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */,
+				7A9418F1233178960051F448 /* Model.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
+				7A9418F323317A290051F448 /* Classes.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
 				D70CFAF52332822500147700 /* Publisher.swift in Sources */,
 				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,
