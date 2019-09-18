@@ -5,7 +5,7 @@ class GameScene: SKScene {
     var playerNode: SKSpriteNode = SKSpriteNode(color: .green, size: CGSize(width: 200, height: 200))
     let moveJoystick = TLAnalogJoystick(withDiameter: 100)
     
-    var cameraController: SKCameraController!
+    var cameraController: SKCameraController?
     
     var mapWidth: CGFloat = 4500
     var mapHeight: CGFloat = 4500
@@ -42,7 +42,7 @@ class GameScene: SKScene {
         camera?.setScale(3)
         
         addChild(playerNode)
-        cameraController.node.addChild(moveJoystickHiddenArea)
+        cameraController?.node.addChild(moveJoystickHiddenArea)
         
         
         moveJoystick.on(.begin) { [unowned self] _ in
@@ -67,7 +67,7 @@ class GameScene: SKScene {
     
     func createCamera() {
         self.cameraController = SKCameraController(cameraRootScene: scene!, lerping: true, startingPosition: playerNode.position, startingScale: 1, mapBounds: mapBounds)
-        self.cameraController.startFollowing(target: playerNode)
+        self.cameraController?.startFollowing(target: playerNode)
     }
 
     
@@ -101,6 +101,7 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
+        guard let cameraController = self.cameraController else { return }
         cameraController.updateCamera()
     }
 }
