@@ -21,6 +21,7 @@
 		7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */; };
 		7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */; };
 		7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */; };
+		7ABFF0852332AE5B0058B918 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtensions.swift; sourceTree = "<group>"; };
 		7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointVectorExtensions.swift; sourceTree = "<group>"; };
+		7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */,
 				7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */,
 				7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */,
+				7ABFF0842332AE5B0058B918 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A6814A12329728600A1BB2D /* GameScene.swift in Sources */,
+				7ABFF0852332AE5B0058B918 /* UIDeviceExtensions.swift in Sources */,
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
