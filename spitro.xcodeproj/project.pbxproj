@@ -20,6 +20,9 @@
 		7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */; };
 		7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */; };
 		94880C255167C5D7D4843E03 /* Pods_spitro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41E4174C401BD23891012D0 /* Pods_spitro.framework */; };
+		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
+		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
+		D70CFAF52332822500147700 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF42332822500147700 /* Publisher.swift */; };
 		D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127A233184DB00B7E255 /* Subscriber.swift */; };
 		D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127C23318E4000B7E255 /* MenuViewController.swift */; };
 		D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F412802331913700B7E255 /* ConnectionFacade.swift */; };
@@ -43,6 +46,9 @@
 		7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointVectorExtensions.swift; sourceTree = "<group>"; };
 		B41E4174C401BD23891012D0 /* Pods_spitro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spitro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA45D37B8556BA9E115CDC45 /* Pods-spitro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.release.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.release.xcconfig"; sourceTree = "<group>"; };
+		D70CFAF02332811400147700 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		D70CFAF2233281CF00147700 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		D70CFAF42332822500147700 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		D7F4127A233184DB00B7E255 /* Subscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
 		D7F4127C23318E4000B7E255 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D7F412802331913700B7E255 /* ConnectionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFacade.swift; sourceTree = "<group>"; };
@@ -100,7 +106,6 @@
 			children = (
 				D7F41279233184CE00B7E255 /* networking */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
-				D7F412802331913700B7E255 /* ConnectionFacade.swift */,
 				D7F4127C23318E4000B7E255 /* MenuViewController.swift */,
 				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
 				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
@@ -122,6 +127,7 @@
 				7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */,
 				7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */,
 				7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */,
+				D70CFAF02332811400147700 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -129,6 +135,9 @@
 		D7F41279233184CE00B7E255 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				D7F412802331913700B7E255 /* ConnectionFacade.swift */,
+				D70CFAF2233281CF00147700 /* Connection.swift */,
+				D70CFAF42332822500147700 /* Publisher.swift */,
 				D7F4127A233184DB00B7E255 /* Subscriber.swift */,
 			);
 			path = networking;
@@ -267,9 +276,12 @@
 				D7F4127B233184DB00B7E255 /* Subscriber.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
+				D70CFAF52332822500147700 /* Publisher.swift in Sources */,
 				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,
 				7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */,
+				D70CFAF12332811400147700 /* StringExtensions.swift in Sources */,
 				7A6814B523297E9100A1BB2D /* TLAnalogJoystick.swift in Sources */,
+				D70CFAF3233281CF00147700 /* Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

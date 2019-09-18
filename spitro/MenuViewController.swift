@@ -44,6 +44,12 @@ class MenuViewController: UIViewController {
         self.setupStartButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        ConnectionFacade.instance.setupConnection()
+    }
+    
     func setupStartButton(){
         self.view.addSubview(self.startButton)
         
@@ -82,7 +88,7 @@ class MenuViewController: UIViewController {
     
     @objc func onStart() {
         self.presentLoadingView()
-        ConnectionFacade.instance.setupConnection()
+        ConnectionFacade.instance.joinGame()
         self.dismissLoadingView()
     }
 
