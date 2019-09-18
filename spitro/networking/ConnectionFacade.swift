@@ -8,8 +8,17 @@
 
 import Foundation
 
+enum NotificationName {
+    case joinedGame
+}
+
+
 class ConnectionFacade{
     static let instance = ConnectionFacade()
+    
+    static let Notifications: [NotificationName: NSNotification.Name]  = [
+        NotificationName.joinedGame : NSNotification.Name("joinedGame")
+    ]
     
     var connection: Connection!
     var privateId: String!
@@ -21,7 +30,9 @@ class ConnectionFacade{
     }
     
     func join(room named: String){
-        print("Joining room", named)
+        self.connection.subscribe(to: named)
+        NotificationCenter.default.post(name: ConnectionFacade.Notifications[.joinedGame
+            ]!, object:  nil)
     }
     
     func joinGame(){
@@ -41,5 +52,4 @@ class ConnectionFacade{
         }
         
         self.connection.setupConnections()
-    }
-}
+    }}

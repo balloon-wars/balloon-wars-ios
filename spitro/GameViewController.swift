@@ -15,12 +15,27 @@ class GameViewController: UIViewController, GameUpdateDelegate {
         let scene = GameScene(size: self.view.bounds.size)
         scene.backgroundColor = .white
         self.gameScene = scene
-        if let view = self.view as? SKView {
+        
+        let view: SKView = {
+            let view = SKView()
+            
+            view.translatesAutoresizingMaskIntoConstraints = false
+            
             view.ignoresSiblingOrder = true
             view.showsFPS = true
             view.showsNodeCount = true
-            view.presentScene(scene)
-        }
+            
+            return view
+        }()
+        
+        self.view.addSubview(view)
+        
+        view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        
+        view.presentScene(self.gameScene)
     }
     
     override func viewWillAppear(_ animated: Bool) {

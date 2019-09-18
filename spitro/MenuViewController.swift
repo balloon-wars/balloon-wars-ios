@@ -90,6 +90,18 @@ class MenuViewController: UIViewController {
         self.presentLoadingView()
         ConnectionFacade.instance.joinGame()
         self.dismissLoadingView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onGameJoin), name: ConnectionFacade.Notifications[.joinedGame], object: nil)
+    }
+    
+    @objc func onGameJoin(){
+        let gameVc = GameViewController()
+        
+        NotificationCenter.default.removeObserver(self)
+        
+        self.present(gameVc, animated: true) {
+            print("APRESENTEI A GAMEVC")
+        }
     }
 
     /*
