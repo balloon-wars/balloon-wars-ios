@@ -2,13 +2,10 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-protocol GameUpdateDelegate{
-    func onUpdate()
-}
-
-class GameViewController: UIViewController, GameUpdateDelegate {
+class GameViewController: UIViewController {
 
     var gameScene: GameScene!
+    var remotePlayers: [RemotePlayerNode]! = [RemotePlayerNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +14,8 @@ class GameViewController: UIViewController, GameUpdateDelegate {
         let scene = GameScene(size: self.view.bounds.size)
         scene.backgroundColor = .white
         self.gameScene = scene
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: ConnectionFacade.Notifications[.playerUpdated], object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,13 +41,23 @@ class GameViewController: UIViewController, GameUpdateDelegate {
         view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         view.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
-
-        ConnectionFacade.instance.setUpdateReceiver(to: self)
-    }
-    
-    func onUpdate(){
         
     }
+    
+    @objc func onUpdate(_ notification: NSNotification){
+        guard let update = notification.userInfo?["updates"] as? PlayerUpdate else { return }
+        print("Player", update)
+        
+        if !self.remotePlayers.map({$0.remotePlayerId}).contains(update.id) {
+            let newPlayer = RemotePlayerNode(playerId:  update.id, color: UIColor.green)
+            self.gameScene.addChild(newPlayer)
+            self.remotePlayers.append(newPlayer)
+        }
+        
+        self.gameScene.updatePlayer(update)
+    }
+    
+    
     
     override var shouldAutorotate: Bool {
         return true
