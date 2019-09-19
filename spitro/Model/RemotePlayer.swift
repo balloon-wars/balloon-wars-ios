@@ -13,15 +13,18 @@ class PlayerUpdate {
     var id: String!
     var position: CGPoint!
     var zRotation: CGFloat!
+    var velocity: CGPoint!
+    
     
     func encode() -> String {
-        return "\(self.id!):\(position?.x ?? CGFloat.infinity):\(position?.y ?? CGFloat.infinity):\(zRotation ?? CGFloat.infinity)"
+        return "\(self.id!):\(position?.x ?? CGFloat.infinity):\(position?.y ?? CGFloat.infinity):\(zRotation ?? CGFloat.infinity):\(self.velocity.x ?? CGFloat.infinity):\(self.velocity.y ?? CGFloat.infinity)"
     }
     
-    init(id: String, position: CGPoint, zRotation: CGFloat){
+    init(id: String, position: CGPoint, zRotation: CGFloat, velocity: CGPoint){
         self.id = id
         self.position = position
         self.zRotation = zRotation
+        self.velocity = velocity
     }
     
     init(from string: String){
@@ -29,6 +32,7 @@ class PlayerUpdate {
         
         self.id = splitted[0]
         self.position = CGPoint.zero
+        self.velocity = CGPoint.zero
         
         if let x = (splitted[1] as? NSString)?.floatValue {
             self.position.x = CGFloat(x)
@@ -40,6 +44,14 @@ class PlayerUpdate {
         
         if let z = (splitted[3] as? NSString)?.floatValue {
             self.zRotation = CGFloat(z)
+        }
+        
+        if let vX = (splitted[4] as? NSString)?.floatValue {
+            self.velocity.x = CGFloat(vX)
+        }
+        
+        if let vY = (splitted[5] as? NSString)?.floatValue {
+            self.velocity.y = CGFloat(vY)
         }
         
     }

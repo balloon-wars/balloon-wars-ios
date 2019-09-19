@@ -11,7 +11,8 @@ import SpriteKit
 class PlayerNode: SKSpriteNode {
 
     var gunNode: SKShapeNode!
-    
+    var velocity: CGPoint?
+    var angularRotation: CGFloat?
     
     init(color: UIColor, size: CGSize = CGSize(width: 200, height: 200)) {
         let texture = SKTexture(image: UIImage(named: "balloon")!)
@@ -31,5 +32,25 @@ class PlayerNode: SKSpriteNode {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func update(){
+        let speed: CGFloat = 0.12
+        guard let angular = self.angularRotation else { return }
+        guard let pVelocity = self.velocity else { return }
+        
+        if pVelocity.x != 0 && pVelocity.y != 0 && zRotation != angular {
+            self.zRotation = angular
+        }
+        
+        
+        let newPos = CGPoint(x: self.position.x + (pVelocity.x * speed), y: self.position.y + (pVelocity.y * speed))
+        guard newPos != self.position else { return }
+        self.position = newPos
+    }
+    
+    func updatePlayer(velocity newVelocity: CGPoint, rotation newRotation: CGFloat){
+        self.angularRotation = newRotation
+        self.velocity = newVelocity
     }
 }

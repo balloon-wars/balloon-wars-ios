@@ -10,19 +10,31 @@ import SpriteKit
 
 class LocalPlayerNode: PlayerNode {
 
-    override var position: CGPoint{
-        didSet {
-            self.delegatePlayerUpdate()
-        }
+//    override var position: CGPoint{
+//        willSet(to) {
+//            if to.distanceTo(self.position) < 1 {
+//                self.delegatePlayerUpdate()
+//            }
+//        }
+//    }
+//
+//    override var zRotation: CGFloat {
+//        didSet {
+//            self.delegatePlayerUpdate()
+//        }
+//    }
+    var needsUpdate: Bool! = false
+    
+    func square(_ value: CGFloat?) ->  Double{
+        guard let a = value else { return 0}
+        return Double(a * a)
     }
     
-    override var zRotation: CGFloat {
-        didSet {
-            self.delegatePlayerUpdate()
-        }
-    }
+    
     
     func delegatePlayerUpdate(){
-        ConnectionFacade.instance.updatePlayer(at: self.position, with: self.zRotation)
+        if !self.needsUpdate { return }
+        ConnectionFacade.instance.updatePlayer(at: self.position, with: self.zRotation, with: self.velocity ?? CGPoint.zero)
     }
 }
+

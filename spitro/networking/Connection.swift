@@ -71,4 +71,12 @@ class Connection: RMQConnectionDelegateLogger, SubscriberDelegate {
         }
     }
     
+    func closeAll(){
+        for q in self.subscriber?.queues ?? []{
+            q.delete()
+        }
+        
+        self.connection.close()
+    }
+    
 }

@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         let scene = GameScene(size: self.view.bounds.size)
         scene.backgroundColor = .white
+        scene.viewController = self
         self.gameScene = scene
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: ConnectionFacade.Notifications[.playerUpdated], object: nil)
@@ -56,7 +57,6 @@ class GameViewController: UIViewController {
         
         self.gameScene.updatePlayer(update)
     }
-    
     
     
     override var shouldAutorotate: Bool {

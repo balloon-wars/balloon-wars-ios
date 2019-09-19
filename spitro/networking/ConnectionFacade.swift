@@ -46,8 +46,8 @@ class ConnectionFacade{
     }
     
     
-    func updatePlayer(at position: CGPoint, with rotation: CGFloat){
-        let update = PlayerUpdate(id: self.privateId, position: position, zRotation: rotation)
+    func updatePlayer(at position: CGPoint, with rotation: CGFloat, with speed: CGPoint){
+        let update = PlayerUpdate(id: self.privateId, position: position, zRotation: rotation, velocity: speed)
         self.connection.publish(message: update.encode(), on: "playerUpdates")
     }
     
@@ -64,6 +64,10 @@ class ConnectionFacade{
         }
         
         self.connection.setupConnections()
+    }
+    
+    func disconnect(){
+        self.connection.closeAll()
     }
     
 }

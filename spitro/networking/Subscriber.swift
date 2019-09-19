@@ -37,6 +37,7 @@ class Subscriber{
     
     
     func unsubscribe(to queue: String){
+        self.channel.basicCancel(queue)
         self.queues = self.queues.filter({ (q) -> Bool in
             q.name != queue
         })
