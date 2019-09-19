@@ -64,4 +64,6 @@ class ConnectionFacade{
         }
         
         self.connection.setupConnections()
-    }}
+    }
+    
+}

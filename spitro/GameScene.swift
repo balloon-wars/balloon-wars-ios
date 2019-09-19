@@ -17,7 +17,6 @@ class GameScene: SKScene {
         
         return view
     }()
-    var gunNode = SKShapeNode(circleOfRadius: 20)
     
     var cameraController: SKCameraController!
     
@@ -37,21 +36,11 @@ class GameScene: SKScene {
     }
     
     func setupPlayer() {
-        let texture = SKTexture(image: UIImage(named: "balloon")!)
         physicsBody = SKPhysicsBody(edgeLoopFrom: mapBounds)
         
         self.playerNode.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.playerNode.texture = texture
-        self.playerNode.physicsBody = SKPhysicsBody(texture: texture, size: self.playerNode.size)
-        self.playerNode.physicsBody!.affectedByGravity = false
-        
         self.addChild(self.playerNode)
         
-        self.gunNode.position  = CGPoint(x: 0, y: 100)
-        self.gunNode.zPosition = 1000
-        self.gunNode.fillColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-        self.playerNode.addChild(self.gunNode)
     }
     
     func setupFire(on view: UIView) {
@@ -75,7 +64,7 @@ class GameScene: SKScene {
     
     func attack(){
         
-        self.gunNode.run(.sequence([.moveBy(x: 0, y: 100, duration: 0.5), .moveBy(x: 0, y: -100, duration: 0.5)]))
+        self.playerNode.gunNode.run(.sequence([.moveBy(x: 0, y: 100, duration: 0.5), .moveBy(x: 0, y: -100, duration: 0.5)]))
     }
     
     func setupJoystick() {
@@ -168,5 +157,11 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         guard let cameraController = self.cameraController else { return }
         cameraController.updateCamera()
+    }
+    
+    func updatePlayer(_ update: PlayerUpdate){
+        guard let node = self.childNode(withName: update.id) else { return }
+        node.position = update.position
+        node.zRotation = update.zRotation
     }
 }

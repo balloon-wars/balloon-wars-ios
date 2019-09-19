@@ -5,6 +5,7 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     var gameScene: GameScene!
+    var remotePlayers: [RemotePlayerNode]! = [RemotePlayerNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,17 @@ class GameViewController: UIViewController {
     @objc func onUpdate(_ notification: NSNotification){
         guard let update = notification.userInfo?["updates"] as? PlayerUpdate else { return }
         print("Player", update)
+        
+        if !self.remotePlayers.map({$0.remotePlayerId}).contains(update.id) {
+            let newPlayer = RemotePlayerNode(playerId:  update.id, color: UIColor.green)
+            self.gameScene.addChild(newPlayer)
+            self.remotePlayers.append(newPlayer)
+        }
+        
+        self.gameScene.updatePlayer(update)
     }
+    
+    
     
     override var shouldAutorotate: Bool {
         return true

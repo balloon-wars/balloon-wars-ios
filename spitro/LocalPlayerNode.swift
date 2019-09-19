@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class LocalPlayerNode: SKSpriteNode {
+class LocalPlayerNode: PlayerNode {
 
     override var position: CGPoint{
         didSet {
