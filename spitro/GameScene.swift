@@ -4,7 +4,7 @@ import GameplayKit
 class GameScene: SKScene {
     let moveJoystick = TLAnalogJoystick(withDiameter: 100)
     var moveJoystickHiddenArea: TLAnalogJoystickHiddenArea!
-    let playerNode: SKSpriteNode = SKSpriteNode(color: .green, size: CGSize(width: 200, height: 200))
+    let playerNode: LocalPlayerNode = LocalPlayerNode(color: .green, size: CGSize(width: 200, height: 200))
     
     lazy var fireNode: UIView = {
         let view = UIView()

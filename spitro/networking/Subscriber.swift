@@ -34,4 +34,11 @@ class Subscriber{
         }
         self.queues.append(queue)
     }
+    
+    
+    func unsubscribe(to queue: String){
+        self.queues = self.queues.filter({ (q) -> Bool in
+            q.name != queue
+        })
+    }
 }

@@ -47,17 +47,25 @@ class Connection: RMQConnectionDelegateLogger, SubscriberDelegate {
         subscriber.subscribe(toQueue: queue)
     }
     
+    func unsubscribe(to queue: String){
+        self.channel.basicCancel(queue)
+        self.subscriber?.unsubscribe(to: queue)
+    }
+    
+    
     func onMessage(message rmqMessage: RMQMessage, from queue: RMQQueue) {
         guard let message = String(data: rmqMessage.body, encoding: .utf8) else { return }
     
-        let splitted =  message.components(separatedBy: ":")
-    
-        
-        guard splitted[0] == ConnectionFacade.instance.privateId, splitted.count == 2 else { return }
         
         switch queue.name {
         case QUEUES.join.rawValue:
+            let splitted =  message.components(separatedBy: ":")
+            
+            guard splitted[0] == ConnectionFacade.instance.privateId, splitted.count == 2 else { return }
             ConnectionFacade.instance.join(room: splitted[1])
+            
+        case ConnectionFacade.instance.roomId:
+            ConnectionFacade.instance.onPlayerUpdate(message)
         default:
             break
         }
