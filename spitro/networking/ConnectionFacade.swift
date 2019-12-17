@@ -23,7 +23,6 @@ class ConnectionFacade{
         .playerUpdated: NSNotification.Name("playerUpdated")
     ]
     
-    var connection: Connection!
     var privateId: String!
     var roomId: String?
     
@@ -34,21 +33,20 @@ class ConnectionFacade{
     
     func join(room named: String){
         self.roomId = named
-        self.connection.subscribe(to: named)
+        
         NotificationCenter.default.post(name: ConnectionFacade.Notifications[.joinedGame
             ]!, object:  nil)
-        self.connection.unsubscribe(to: "queueing")
+        
     }
     
     func joinGame(){
-        self.connection.subscribe(to: Connection.QUEUES.join.rawValue)
-        self.connection.publish(message: self.privateId, on: Connection.QUEUES.queueing.rawValue)
+        // TODO
     }
     
     
     func updatePlayer(at position: CGPoint, with rotation: CGFloat, with speed: CGPoint){
         let update = PlayerUpdate(id: self.privateId, position: position, zRotation: rotation, velocity: speed)
-        self.connection.publish(message: update.encode(), on: "playerUpdates")
+        
     }
     
     func onPlayerUpdate(_ encodedUpdate: String){
@@ -59,15 +57,11 @@ class ConnectionFacade{
     
     func setupConnection() {
         
-        if self.connection == nil {
-            self.connection = Connection()
-        }
         
-        self.connection.setupConnections()
     }
     
     func disconnect(){
-        self.connection.closeAll()
+        
     }
     
 }
