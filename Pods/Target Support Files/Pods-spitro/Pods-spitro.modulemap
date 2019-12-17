@@ -1,6 +1,0 @@
-framework module Pods_spitro {
-  umbrella header "Pods-spitro-umbrella.h"
-
-  export *
-  module * { export * }
-}
