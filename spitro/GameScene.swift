@@ -148,7 +148,15 @@ class GameScene: SKScene {
             return !existingPlayers.contains(player.id)
         }
         
+        let playerNames = newGame.players.map { (p) -> String in
+            return p.id
+        }
         
+        for player in existingPlayers {
+            if !playerNames.contains(player) {
+                remotePlayersNode.childNode(withName: player)?.removeFromParent()
+            }
+        }
         
         for player in newPlayers {
             let newPlayer = PlayerNode(playerId: player.id, color: .blue)
@@ -163,8 +171,6 @@ class GameScene: SKScene {
         for player in newGame.players {
             guard let playerNode = remotePlayersNode.childNode(withName: player.id) as? PlayerNode else { return }
             
-//            playerNode.position = player.position.getCGPoint()
-//            playerNode.angularRotation = -CGFloat(player.direction)
             playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction) - (CGFloat.pi / 2))
             
         }
