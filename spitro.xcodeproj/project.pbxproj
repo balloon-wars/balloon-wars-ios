@@ -113,23 +113,20 @@
 			children = (
 				D70AAE5F23AE8C59007654DA /* model */,
 				D7F41279233184CE00B7E255 /* networking */,
+				D70AAE6923AE8D4F007654DA /* player */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
-				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
-				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
-				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
-				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
 				7A6814A02329728600A1BB2D /* GameScene.swift */,
 				7A6814A22329728600A1BB2D /* GameViewController.swift */,
 				7A6814A42329728600A1BB2D /* Main.storyboard */,
 				7A6814AC2329728800A1BB2D /* Info.plist */,
 				7A6814A72329728800A1BB2D /* Assets.xcassets */,
 				7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */,
-				7A9ECD77232BDE3100212A1C /* Extensions */,
+				7A9ECD77232BDE3100212A1C /* extensions */,
 			);
 			path = spitro;
 			sourceTree = "<group>";
 		};
-		7A9ECD77232BDE3100212A1C /* Extensions */ = {
+		7A9ECD77232BDE3100212A1C /* extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */,
@@ -138,7 +135,7 @@
 				D70CFAF02332811400147700 /* StringExtensions.swift */,
 				7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */,
 			);
-			path = Extensions;
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		D70AAE5F23AE8C59007654DA /* model */ = {
@@ -150,6 +147,25 @@
 				D70AAE6623AE8CEC007654DA /* Position.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		D70AAE6823AE8D42007654DA /* camera */ = {
+			isa = PBXGroup;
+			children = (
+				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
+				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
+			);
+			path = camera;
+			sourceTree = "<group>";
+		};
+		D70AAE6923AE8D4F007654DA /* player */ = {
+			isa = PBXGroup;
+			children = (
+				D70AAE6823AE8D42007654DA /* camera */,
+				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
+				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
+			);
+			path = player;
 			sourceTree = "<group>";
 		};
 		D7F41279233184CE00B7E255 /* networking */ = {
