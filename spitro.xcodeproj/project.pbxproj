@@ -16,8 +16,6 @@
 		7A6814A82329728800A1BB2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6814A72329728800A1BB2D /* Assets.xcassets */; };
 		7A6814AB2329728800A1BB2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */; };
 		7A6814B523297E9100A1BB2D /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */; };
-		7A9418F1233178960051F448 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9418F0233178960051F448 /* Model.swift */; };
-		7A9418F323317A290051F448 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9418F223317A290051F448 /* Classes.swift */; };
 		7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD68232BDB6500212A1C /* SKCameraController.swift */; };
 		7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */; };
 		7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */; };
@@ -26,7 +24,6 @@
 		7ABFF0852332AE5B0058B918 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
 		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
-		D7317B712332CFEF000AFF50 /* RemotePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7317B702332CFEF000AFF50 /* RemotePlayer.swift */; };
 		D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C12233351B600D6A561 /* PlayerNode.swift */; };
 		D7CB1C152333540900D6A561 /* RemotePlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C142333540900D6A561 /* RemotePlayerNode.swift */; };
 		D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4127C23318E4000B7E255 /* MenuViewController.swift */; };
@@ -45,8 +42,6 @@
 		7A6814AA2329728800A1BB2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A6814AC2329728800A1BB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
-		7A9418F0233178960051F448 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		7A9418F223317A290051F448 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		7A9ECD68232BDB6500212A1C /* SKCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCameraController.swift; sourceTree = "<group>"; };
 		7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCameraMode.swift; sourceTree = "<group>"; };
 		7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
@@ -56,7 +51,6 @@
 		A14B2635CF59390E4ECA4358 /* Pods-spitro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.release.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.release.xcconfig"; sourceTree = "<group>"; };
 		D70CFAF02332811400147700 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D70CFAF2233281CF00147700 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		D7317B702332CFEF000AFF50 /* RemotePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlayer.swift; sourceTree = "<group>"; };
 		D7CB1C12233351B600D6A561 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		D7CB1C142333540900D6A561 /* RemotePlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlayerNode.swift; sourceTree = "<group>"; };
 		D7F4127C23318E4000B7E255 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +112,6 @@
 				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
 				D7CB1C142333540900D6A561 /* RemotePlayerNode.swift */,
 				D7F4127C23318E4000B7E255 /* MenuViewController.swift */,
-				7A9418EF233177700051F448 /* Model */,
 				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
 				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
 				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
@@ -131,16 +124,6 @@
 				7A9ECD77232BDE3100212A1C /* Extensions */,
 			);
 			path = spitro;
-			sourceTree = "<group>";
-		};
-		7A9418EF233177700051F448 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7A9418F0233178960051F448 /* Model.swift */,
-				7A9418F223317A290051F448 /* Classes.swift */,
-				D7317B702332CFEF000AFF50 /* RemotePlayer.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		7A9ECD77232BDE3100212A1C /* Extensions */ = {
@@ -283,15 +266,12 @@
 				7A3906272332BE7F00A765D4 /* UIDeviceExtensions.swift in Sources */,
 				D7CB1C152333540900D6A561 /* RemotePlayerNode.swift in Sources */,
 				7ABFF0852332AE5B0058B918 /* (null) in Sources */,
-				D7317B712332CFEF000AFF50 /* RemotePlayer.swift in Sources */,
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
 				D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */,
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
-				7A9418F1233178960051F448 /* Model.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
-				7A9418F323317A290051F448 /* Classes.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
 				D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */,
 				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,

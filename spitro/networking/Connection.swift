@@ -126,11 +126,10 @@ class NetworkGame: Codable {
 
 class Connection {
     
-
     let manager = SocketManager(socketURL: URL(string: "https://balloon-wars-server.herokuapp.com")!, config: [.log(true), .compress])
 
     
-    func  setupConnections() {
+    func setupConnections() {
         let socket = getSocket()
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
