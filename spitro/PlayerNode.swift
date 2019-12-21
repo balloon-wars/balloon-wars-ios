@@ -14,11 +14,17 @@ class PlayerNode: SKSpriteNode {
     var velocity: CGPoint?
     var angularRotation: CGFloat?
     
-    init(color: UIColor, size: CGSize = CGSize(width: 200, height: 200)) {
+    var remotePlayerId: String!
+    
+    init(playerId: String, color: UIColor, size: CGSize = CGSize(width: 200, height: 200)) {
+        
+        
         let texture = SKTexture(image: UIImage(named: "balloon")!)
         
         super.init(texture: texture, color: color, size: size)
         
+        self.remotePlayerId = playerId
+        self.name = playerId
 //        self.physicsBody = SKPhysicsBody(texture: texture, size: self.size)
 //        self.physicsBody?.affectedByGravity = false
         

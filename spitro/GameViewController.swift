@@ -5,7 +5,7 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     var gameScene: GameScene!
-    var remotePlayers: [RemotePlayerNode]! = [RemotePlayerNode]()
+    
     
     override func viewDidLoad() {
         ConnectionFacade.instance.setupConnection()

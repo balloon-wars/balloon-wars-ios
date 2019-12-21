@@ -184,20 +184,7 @@ class GameScene: SKScene {
         
     }
     
-    func updateRemotePlayers(){
-        for node in self.children{
-            if let pNode = node as? PlayerNode{
-//                pNode.update()
-            }
-        }
-    }
     
-    
-    func updatePlayer(_ update: PlayerUpdate){
-        guard let node = self.childNode(withName: update.id), let playerNode = node as? PlayerNode else { return }
-        playerNode.updatePlayer(velocity: update.velocity, rotation: update.zRotation)
-        node.position = update.position
-    }
     
     func updateGame(to newGame: _Game) {
         guard let remotePlayersNode = self.getRemotePlayersNode() else { return }
@@ -217,7 +204,7 @@ class GameScene: SKScene {
         
         
         for player in newPlayers {
-            let newPlayer = RemotePlayerNode(playerId: player.id, color: .blue)
+            let newPlayer = PlayerNode(playerId: player.id, color: .blue)
             if player.id == ConnectionFacade.instance.getCurrentPlayerId() {
                 self.playerNode = newPlayer
 
