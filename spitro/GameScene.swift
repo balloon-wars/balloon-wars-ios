@@ -4,7 +4,7 @@ import GameplayKit
 class GameScene: SKScene {
     let moveJoystick = TLAnalogJoystick(withDiameter: 100)
     var moveJoystickHiddenArea: TLAnalogJoystickHiddenArea!
-    let playerNode: LocalPlayerNode = LocalPlayerNode(color: .green, size: CGSize(width: 200, height: 200))
+    var playerNode: PlayerNode!
     let remotePlayersNode = SKNode()
     
     lazy var fireNode: UIView = {
@@ -46,6 +46,8 @@ class GameScene: SKScene {
         self.playerNode.position = CGPoint(x: frame.midX, y: frame.midY)
 //        self.addChild(self.playerNode)
         
+        self.cameraController.startFollowing(target: playerNode)
+        camera?.setScale(2)
     }
     
     func setupFire(on view: UIView) {
@@ -60,11 +62,7 @@ class GameScene: SKScene {
     }
     
     func setupCamera() {
-        self.cameraController = SKCameraController(cameraRootScene: scene!, lerping: false, startingPosition: playerNode.position, startingScale: 1, mapBounds: mapBounds)
-        self.cameraController.startFollowing(target: playerNode)
-        camera?.setScale(2)
-        
-        
+        self.cameraController = SKCameraController(cameraRootScene: scene!, lerping: false, startingPosition: CGPoint(x: frame.midX, y: frame.midY), startingScale: 1, mapBounds: mapBounds)
     }
     
     func attack(){
@@ -85,7 +83,7 @@ class GameScene: SKScene {
         self.cameraController.node.addChild(moveJoystickHiddenArea)
         
         moveJoystick.on(.begin) { [unowned self] _ in
-            self.playerNode.needsUpdate = true
+//            self.playerNode.needsUpdate = true
         }
         
         moveJoystick.on(.move) { [unowned self] joystick in
@@ -98,8 +96,8 @@ class GameScene: SKScene {
         
         moveJoystick.on(.end) { [unowned self] _ in
             self.playerNode.velocity = .zero
-            self.playerNode.delegatePlayerUpdate()
-            self.playerNode.needsUpdate = false
+//            self.playerNode.delegatePlayerUpdate()
+//            self.playerNode.needsUpdate = false
         }
 
     }
@@ -113,7 +111,6 @@ class GameScene: SKScene {
         self.addChild(self.remotePlayersNode)
         
         self.setupMap()
-        self.setupPlayer()
         self.setupCamera()
         self.setupFire(on: view)
         self.setupJoystick()
@@ -163,8 +160,8 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
 //        print("Updating")
-//        guard let cameraController = self.cameraController else { return }
-//        cameraController.updateCamera()
+        guard let cameraController = self.cameraController else { return }
+        cameraController.updateCamera()
 //        self.playerNode.update()
 //        self.updateRemotePlayers()
 //
@@ -219,7 +216,11 @@ class GameScene: SKScene {
         
         for player in newPlayers {
             let newPlayer = RemotePlayerNode(playerId: player.id, color: .blue)
-            
+            if player.id == ConnectionFacade.instance.getCurrentPlayerId() {
+                self.playerNode = newPlayer
+
+                self.setupPlayer()
+            }
             remotePlayersNode.addChild(newPlayer)
         }
         

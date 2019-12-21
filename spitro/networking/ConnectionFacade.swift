@@ -75,4 +75,8 @@ class ConnectionFacade{
         
     }
     
+    func getCurrentPlayerId() -> String {
+        return self.connection.getSocket().sid
+    }
+    
 }
