@@ -19,8 +19,8 @@ class PlayerNode: SKSpriteNode {
         
         super.init(texture: texture, color: color, size: size)
         
-        self.physicsBody = SKPhysicsBody(texture: texture, size: self.size)
-        self.physicsBody?.affectedByGravity = false
+//        self.physicsBody = SKPhysicsBody(texture: texture, size: self.size)
+//        self.physicsBody?.affectedByGravity = false
         
         self.gunNode = SKShapeNode(circleOfRadius: 20)
         self.gunNode.position  = CGPoint(x: 0, y: self.size.height / 2)

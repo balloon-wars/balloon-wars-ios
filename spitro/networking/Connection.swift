@@ -151,6 +151,14 @@ class Connection {
 //        print("Json is", json)
         let newGame = try! JSONDecoder().decode(NetworkGame.self, from: json.data(using: .utf8)!)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = ("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        
+        let serverTs = dateFormatter.date(from: newGame.lastUpdate)!
+        
+        print("Ping from server", Calendar.current.dateComponents([.nanosecond], from: serverTs, to: Date()).nanosecond! / 1000000)
+        
+        
         NotificationCenter.default.post(name: GAME_UPDATE_NOTIFICATION_NAME, object: nil, userInfo: ["game": newGame])
     }
     

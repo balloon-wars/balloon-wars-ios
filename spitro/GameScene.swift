@@ -41,7 +41,7 @@ class GameScene: SKScene {
     }
     
     func setupPlayer() {
-        physicsBody = SKPhysicsBody(edgeLoopFrom: mapBounds)
+//        physicsBody = SKPhysicsBody(edgeLoopFrom: mapBounds)
         
         self.playerNode.position = CGPoint(x: frame.midX, y: frame.midY)
 //        self.addChild(self.playerNode)
@@ -213,6 +213,8 @@ class GameScene: SKScene {
         let newPlayers = newGame.players.filter { (player) -> Bool in
             return !existingPlayers.contains(player.id)
         }
+        
+        
         
         for player in newPlayers {
             let newPlayer = RemotePlayerNode(playerId: player.id, color: .blue)
