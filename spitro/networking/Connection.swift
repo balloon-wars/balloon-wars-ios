@@ -127,7 +127,7 @@ class NetworkGame: Codable {
 class Connection {
     
 
-    let manager = SocketManager(socketURL: URL(string: "http://192.168.100.34:8080")!, config: [.log(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "https://balloon-wars-server.herokuapp.com")!, config: [.log(true), .compress])
 
     
     func  setupConnections() {

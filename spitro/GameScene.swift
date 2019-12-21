@@ -91,7 +91,7 @@ class GameScene: SKScene {
         moveJoystick.on(.move) { [unowned self] joystick in
             let pVelocity = joystick.velocity
 //            let speed = CGFloat(0.12)
-            print("Velocity is", joystick.angular, pVelocity)
+//            print("Velocity is", joystick.angular, pVelocity)
             ConnectionFacade.instance.updateDirection(to: joystick.angular)
 //            self.playerNode.updatePlayer(velocity: pVelocity, rotation: joystick.angular)
         }
