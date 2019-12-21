@@ -35,6 +35,10 @@ class _Position: Codable {
         try container.encode(self.y, forKey: .y)
     }
     
+    
+    func getCGPoint() -> CGPoint {
+        return CGPoint(x: Double(self.x), y: Double(self.y))
+    }
 }
 
 class _Player: Codable {
@@ -133,7 +137,7 @@ class Connection {
         }
 
         socket.on("gameUpdate") {data, ack in
-            print("TYPE IS", type(of: data[0]))
+//            print("TYPE IS", type(of: data[0]))
             self.onGameUpdate(data[0] as! String)
 //            print("Got a game update", data as! [[String: Any]])
 //            self.onGameUpdate()
@@ -144,7 +148,7 @@ class Connection {
     }
     
     private func onGameUpdate(_ json: String){
-        print("Json is", json)
+//        print("Json is", json)
         let newGame = try! JSONDecoder().decode(NetworkGame.self, from: json.data(using: .utf8)!)
         
         NotificationCenter.default.post(name: GAME_UPDATE_NOTIFICATION_NAME, object: nil, userInfo: ["game": newGame])

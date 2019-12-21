@@ -5,6 +5,7 @@ class GameScene: SKScene {
     let moveJoystick = TLAnalogJoystick(withDiameter: 100)
     var moveJoystickHiddenArea: TLAnalogJoystickHiddenArea!
     let playerNode: LocalPlayerNode = LocalPlayerNode(color: .green, size: CGSize(width: 200, height: 200))
+    let remotePlayersNode = SKNode()
     
     lazy var fireNode: UIView = {
         let view = UIView()
@@ -43,7 +44,7 @@ class GameScene: SKScene {
         physicsBody = SKPhysicsBody(edgeLoopFrom: mapBounds)
         
         self.playerNode.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.addChild(self.playerNode)
+//        self.addChild(self.playerNode)
         
     }
     
@@ -108,6 +109,8 @@ class GameScene: SKScene {
         view.isMultipleTouchEnabled = true
         backgroundColor = .white
 
+        self.remotePlayersNode.name = "remotePlayersNode"
+        self.addChild(self.remotePlayersNode)
         
         self.setupMap()
         self.setupPlayer()
@@ -185,13 +188,11 @@ class GameScene: SKScene {
     }
     
     func updateRemotePlayers(){
-        
         for node in self.children{
             if let pNode = node as? PlayerNode{
-                pNode.update()
+//                pNode.update()
             }
         }
-        
     }
     
     
@@ -199,5 +200,40 @@ class GameScene: SKScene {
         guard let node = self.childNode(withName: update.id), let playerNode = node as? PlayerNode else { return }
         playerNode.updatePlayer(velocity: update.velocity, rotation: update.zRotation)
         node.position = update.position
+    }
+    
+    func updateGame(to newGame: _Game) {
+        guard let remotePlayersNode = self.getRemotePlayersNode() else { return }
+        
+        let existingPlayers =
+            remotePlayersNode.children.map({ (node) -> String in
+            return node.name ?? ""
+            }).filter { (s) -> Bool in
+                return s != ""
+        }
+        
+        
+        let newPlayers = newGame.players.filter { (player) -> Bool in
+            return !existingPlayers.contains(player.id)
+        }
+        
+        for player in newPlayers {
+            let newPlayer = RemotePlayerNode(playerId: player.id, color: .blue)
+            
+            remotePlayersNode.addChild(newPlayer)
+        }
+        
+        for player in newGame.players {
+            guard let playerNode = remotePlayersNode.childNode(withName: player.id) as? PlayerNode else { return }
+            
+//            playerNode.position = player.position.getCGPoint()
+//            playerNode.angularRotation = -CGFloat(player.direction)
+            playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction) - (CGFloat.pi / 2))
+            
+        }
+    }
+    
+    func getRemotePlayersNode() -> SKNode? {
+        return self.childNode(withName: "remotePlayersNode")
     }
 }

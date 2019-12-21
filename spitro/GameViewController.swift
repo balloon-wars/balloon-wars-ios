@@ -50,8 +50,9 @@ class GameViewController: UIViewController {
     @objc func onUpdate(_ notification: NSNotification){
         guard let update = notification.userInfo?["game"] as? NetworkGame else { return }
         
-        print("update", update)
+        guard let game = update.game else { return }
         
+        self.gameScene.updateGame(to: game)
     }
     
     
