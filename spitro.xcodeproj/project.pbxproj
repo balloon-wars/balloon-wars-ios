@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		656F6E914C9157986C2673CF /* Pods_spitro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB365575DADC75803876A1F /* Pods_spitro.framework */; };
+		7A3906272332BE7F00A765D4 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */; };
 		7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A68149A2329728600A1BB2D /* AppDelegate.swift */; };
 		7A6814A12329728600A1BB2D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6814A02329728600A1BB2D /* GameScene.swift */; };
 		7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6814A22329728600A1BB2D /* GameViewController.swift */; };
@@ -19,9 +21,20 @@
 		7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */; };
 		7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */; };
 		7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */; };
+		7ABFF0852332AE5B0058B918 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D70AAE6123AE8C72007654DA /* NetworkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6023AE8C72007654DA /* NetworkGame.swift */; };
+		D70AAE6323AE8CB6007654DA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6223AE8CB6007654DA /* Game.swift */; };
+		D70AAE6523AE8CD9007654DA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6423AE8CD9007654DA /* Player.swift */; };
+		D70AAE6723AE8CEC007654DA /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6623AE8CEC007654DA /* Position.swift */; };
+		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
+		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
+		D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C12233351B600D6A561 /* PlayerNode.swift */; };
+		D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F412802331913700B7E255 /* ConnectionFacade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F842F92065DE2D87E6A6A64 /* Pods-spitro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.debug.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.debug.xcconfig"; sourceTree = "<group>"; };
+		7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		7A6814972329728600A1BB2D /* spitro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spitro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A68149A2329728600A1BB2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A6814A02329728600A1BB2D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -36,6 +49,16 @@
 		7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtensions.swift; sourceTree = "<group>"; };
 		7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointVectorExtensions.swift; sourceTree = "<group>"; };
+		8DB365575DADC75803876A1F /* Pods_spitro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spitro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14B2635CF59390E4ECA4358 /* Pods-spitro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.release.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.release.xcconfig"; sourceTree = "<group>"; };
+		D70AAE6023AE8C72007654DA /* NetworkGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGame.swift; sourceTree = "<group>"; };
+		D70AAE6223AE8CB6007654DA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		D70AAE6423AE8CD9007654DA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D70AAE6623AE8CEC007654DA /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		D70CFAF02332811400147700 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		D70CFAF2233281CF00147700 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		D7CB1C12233351B600D6A561 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		D7F412802331913700B7E255 /* ConnectionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFacade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +66,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656F6E914C9157986C2673CF /* Pods_spitro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EAEC12C8B895A9116270C7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DB365575DADC75803876A1F /* Pods_spitro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63D1C1ECC21F4660A19296BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F842F92065DE2D87E6A6A64 /* Pods-spitro.debug.xcconfig */,
+				A14B2635CF59390E4ECA4358 /* Pods-spitro.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7A68148E2329728600A1BB2D = {
 			isa = PBXGroup;
 			children = (
 				7A6814992329728600A1BB2D /* spitro */,
 				7A6814982329728600A1BB2D /* Products */,
+				63D1C1ECC21F4660A19296BE /* Pods */,
+				2EAEC12C8B895A9116270C7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,29 +111,70 @@
 		7A6814992329728600A1BB2D /* spitro */ = {
 			isa = PBXGroup;
 			children = (
-				7A6814A72329728800A1BB2D /* Assets.xcassets */,
-				7A6814AC2329728800A1BB2D /* Info.plist */,
-				7A6814A42329728600A1BB2D /* Main.storyboard */,
-				7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */,
+				D70AAE5F23AE8C59007654DA /* model */,
+				D7F41279233184CE00B7E255 /* networking */,
+				D70AAE6923AE8D4F007654DA /* player */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
-				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
-				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
-				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
 				7A6814A02329728600A1BB2D /* GameScene.swift */,
 				7A6814A22329728600A1BB2D /* GameViewController.swift */,
-				7A9ECD77232BDE3100212A1C /* Extensions */,
+				7A6814A42329728600A1BB2D /* Main.storyboard */,
+				7A6814AC2329728800A1BB2D /* Info.plist */,
+				7A6814A72329728800A1BB2D /* Assets.xcassets */,
+				7A6814A92329728800A1BB2D /* LaunchScreen.storyboard */,
+				7A9ECD77232BDE3100212A1C /* extensions */,
 			);
 			path = spitro;
 			sourceTree = "<group>";
 		};
-		7A9ECD77232BDE3100212A1C /* Extensions */ = {
+		7A9ECD77232BDE3100212A1C /* extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */,
 				7A9ECD6E232BDE2600212A1C /* SKNodeExtensions.swift */,
 				7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */,
+				D70CFAF02332811400147700 /* StringExtensions.swift */,
+				7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */,
 			);
-			path = Extensions;
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		D70AAE5F23AE8C59007654DA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D70AAE6023AE8C72007654DA /* NetworkGame.swift */,
+				D70AAE6223AE8CB6007654DA /* Game.swift */,
+				D70AAE6423AE8CD9007654DA /* Player.swift */,
+				D70AAE6623AE8CEC007654DA /* Position.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D70AAE6823AE8D42007654DA /* camera */ = {
+			isa = PBXGroup;
+			children = (
+				7A9ECD69232BDB6500212A1C /* SKCameraMode.swift */,
+				7A9ECD68232BDB6500212A1C /* SKCameraController.swift */,
+			);
+			path = camera;
+			sourceTree = "<group>";
+		};
+		D70AAE6923AE8D4F007654DA /* player */ = {
+			isa = PBXGroup;
+			children = (
+				D70AAE6823AE8D42007654DA /* camera */,
+				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
+				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		D7F41279233184CE00B7E255 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				D7F412802331913700B7E255 /* ConnectionFacade.swift */,
+				D70CFAF2233281CF00147700 /* Connection.swift */,
+			);
+			path = networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A6814AF2329728800A1BB2D /* Build configuration list for PBXNativeTarget "spitro" */;
 			buildPhases = (
+				6B1748FED1A44E2188E47D70 /* [CP] Check Pods Manifest.lock */,
 				7A6814932329728600A1BB2D /* Sources */,
 				7A6814942329728600A1BB2D /* Frameworks */,
 				7A6814952329728600A1BB2D /* Resources */,
+				9B80D91CB551A115F0A213B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,20 +245,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6B1748FED1A44E2188E47D70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spitro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B80D91CB551A115F0A213B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spitro/Pods-spitro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spitro/Pods-spitro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-spitro/Pods-spitro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A6814932329728600A1BB2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7A6814A12329728600A1BB2D /* GameScene.swift in Sources */,
+				7A3906272332BE7F00A765D4 /* UIDeviceExtensions.swift in Sources */,
+				7ABFF0852332AE5B0058B918 /* (null) in Sources */,
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
+				D70AAE6123AE8C72007654DA /* NetworkGame.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
+				D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */,
+				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,
 				7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */,
+				D70AAE6323AE8CB6007654DA /* Game.swift in Sources */,
+				D70CFAF12332811400147700 /* StringExtensions.swift in Sources */,
 				7A6814B523297E9100A1BB2D /* TLAnalogJoystick.swift in Sources */,
+				D70AAE6523AE8CD9007654DA /* Player.swift in Sources */,
+				D70AAE6723AE8CEC007654DA /* Position.swift in Sources */,
+				D70CFAF3233281CF00147700 /* Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,10 +454,11 @@
 		};
 		7A6814B02329728800A1BB2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F842F92065DE2D87E6A6A64 /* Pods-spitro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 373U5VR954;
+				DEVELOPMENT_TEAM = QM43B7QRF9;
 				INFOPLIST_FILE = spitro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -335,10 +474,11 @@
 		};
 		7A6814B12329728800A1BB2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14B2635CF59390E4ECA4358 /* Pods-spitro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 373U5VR954;
+				DEVELOPMENT_TEAM = QM43B7QRF9;
 				INFOPLIST_FILE = spitro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
