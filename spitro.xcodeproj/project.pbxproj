@@ -26,7 +26,6 @@
 		7ABFF0852332AE5B0058B918 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
 		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
-		D7317B6F2332CE27000AFF50 /* LocalPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7317B6E2332CE27000AFF50 /* LocalPlayerNode.swift */; };
 		D7317B712332CFEF000AFF50 /* RemotePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7317B702332CFEF000AFF50 /* RemotePlayer.swift */; };
 		D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C12233351B600D6A561 /* PlayerNode.swift */; };
 		D7CB1C152333540900D6A561 /* RemotePlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C142333540900D6A561 /* RemotePlayerNode.swift */; };
@@ -57,7 +56,6 @@
 		A14B2635CF59390E4ECA4358 /* Pods-spitro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.release.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.release.xcconfig"; sourceTree = "<group>"; };
 		D70CFAF02332811400147700 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D70CFAF2233281CF00147700 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		D7317B6E2332CE27000AFF50 /* LocalPlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayerNode.swift; sourceTree = "<group>"; };
 		D7317B702332CFEF000AFF50 /* RemotePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlayer.swift; sourceTree = "<group>"; };
 		D7CB1C12233351B600D6A561 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		D7CB1C142333540900D6A561 /* RemotePlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlayerNode.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				D7F41279233184CE00B7E255 /* networking */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
 				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
-				D7317B6E2332CE27000AFF50 /* LocalPlayerNode.swift */,
 				D7CB1C142333540900D6A561 /* RemotePlayerNode.swift */,
 				D7F4127C23318E4000B7E255 /* MenuViewController.swift */,
 				7A9418EF233177700051F448 /* Model */,
@@ -293,7 +290,6 @@
 				D7F4127D23318E4000B7E255 /* MenuViewController.swift in Sources */,
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
 				7A9418F1233178960051F448 /* Model.swift in Sources */,
-				D7317B6F2332CE27000AFF50 /* LocalPlayerNode.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
 				7A9418F323317A290051F448 /* Classes.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
