@@ -26,9 +26,7 @@ class GameScene: SKScene {
     var mapHeight: CGFloat = 4500
     var mapBounds: CGRect = .zero
     
-    deinit {
-        ConnectionFacade.instance.disconnect()
-    }
+    //MARK: - Setup methods
     
     func setupMap() {
         self.mapBounds = CGRect(x: 0, y: 0, width: mapWidth, height: mapHeight)
@@ -65,43 +63,40 @@ class GameScene: SKScene {
         self.cameraController = SKCameraController(cameraRootScene: scene!, lerping: false, startingPosition: CGPoint(x: frame.midX, y: frame.midY), startingScale: 1, mapBounds: mapBounds)
     }
     
-    func attack(){
-        
-        self.playerNode.gunNode.run(.sequence([.moveBy(x: 0, y: 100, duration: 0.5), .moveBy(x: 0, y: -100, duration: 0.5)]))
-    }
-    
     func setupJoystick() {
-        moveJoystickHiddenArea = TLAnalogJoystickHiddenArea(rect: CGRect(x: -frame.width/2, y: -frame.height/2, width: frame.width/2, height: frame.height))
-        moveJoystickHiddenArea.strokeColor = .init(white: 1, alpha: 0)
-        moveJoystickHiddenArea.joystick = moveJoystick
-        
-        self.moveJoystick.baseImage = UIImage(named: "joystick-base") ?? nil
-        self.moveJoystick.handleImage = UIImage(named: "joystick-handle") ?? nil
-        self.moveJoystick.isMoveable = false
-        self.moveJoystick.alpha = 0.3132
-        
-        self.cameraController.node.addChild(moveJoystickHiddenArea)
-        
-        moveJoystick.on(.begin) { [unowned self] _ in
-//            self.playerNode.needsUpdate = true
-        }
-        
-        moveJoystick.on(.move) { [unowned self] joystick in
-            let pVelocity = joystick.velocity
-//            let speed = CGFloat(0.12)
-//            print("Velocity is", joystick.angular, pVelocity)
-            ConnectionFacade.instance.updateDirection(to: joystick.angular)
-//            self.playerNode.updatePlayer(velocity: pVelocity, rotation: joystick.angular)
-        }
-        
-        moveJoystick.on(.end) { [unowned self] _ in
-            self.playerNode.velocity = .zero
-//            self.playerNode.delegatePlayerUpdate()
-//            self.playerNode.needsUpdate = false
+            moveJoystickHiddenArea = TLAnalogJoystickHiddenArea(rect: CGRect(x: -frame.width/2, y: -frame.height/2, width: frame.width/2, height: frame.height))
+            moveJoystickHiddenArea.strokeColor = .init(white: 1, alpha: 0)
+            moveJoystickHiddenArea.joystick = moveJoystick
+            
+            self.moveJoystick.baseImage = UIImage(named: "joystick-base") ?? nil
+            self.moveJoystick.handleImage = UIImage(named: "joystick-handle") ?? nil
+            self.moveJoystick.isMoveable = false
+            self.moveJoystick.alpha = 0.3132
+            
+            self.cameraController.node.addChild(moveJoystickHiddenArea)
+            
+            moveJoystick.on(.begin) { [unowned self] _ in
+    //            self.playerNode.needsUpdate = true
+            }
+            
+            moveJoystick.on(.move) { [unowned self] joystick in
+                let pVelocity = joystick.velocity
+    //            let speed = CGFloat(0.12)
+    //            print("Velocity is", joystick.angular, pVelocity)
+                ConnectionFacade.instance.updateDirection(to: joystick.angular)
+    //            self.playerNode.updatePlayer(velocity: pVelocity, rotation: joystick.angular)
+            }
+            
+            moveJoystick.on(.end) { [unowned self] _ in
+                self.playerNode.velocity = .zero
+    //            self.playerNode.delegatePlayerUpdate()
+    //            self.playerNode.needsUpdate = false
+            }
+
         }
 
-    }
-
+    
+    // MARK: - SKScene overrides
     
     override func didMove(to view: SKView) {
         view.isMultipleTouchEnabled = true
@@ -119,74 +114,26 @@ class GameScene: SKScene {
     }
 
     
-    func touchDown(atPoint pos : CGPoint) {
+    // MARK: - Attack
+    
+    func attack(){
         
+        self.playerNode.gunNode.run(.sequence([.moveBy(x: 0, y: 100, duration: 0.5), .moveBy(x: 0, y: -100, duration: 0.5)]))
     }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        
-    }
-    
     
     @objc func onFire(_ sender: Any){
         self.attack()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        for t in touches { self.touchDown(atPoint: t.location(in: self.view)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesMoved(touches, with: event)
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesCancelled(touches, with: event)
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    var lastRemoteUpdate: TimeInterval?
+    // MARK: - Updates
     
     override func update(_ currentTime: TimeInterval) {
-//        print("Updating")
         guard let cameraController = self.cameraController else { return }
         cameraController.updateCamera()
-//        self.playerNode.update()
-//        self.updateRemotePlayers()
-//
-//        if let last = self.lastRemoteUpdate{
-//            let timeDiff = currentTime - last
-//
-//            if timeDiff > 1/30{
-//                self.playerNode.delegatePlayerUpdate()
-//                self.lastRemoteUpdate = currentTime
-//            }
-//        } else {
-//            self.playerNode.delegatePlayerUpdate()
-//            self.lastRemoteUpdate = currentTime
-//        }
-//
-////        print("Updated")
     }
     
-    func updateGame(_ newGame: NetworkGame) {
-        
-    }
-    
-    
-    
-    func updateGame(to newGame: _Game) {
+
+    func updateGame(to newGame: Game) {
         guard let remotePlayersNode = self.getRemotePlayersNode() else { return }
         
         let existingPlayers =
@@ -223,7 +170,43 @@ class GameScene: SKScene {
         }
     }
     
+    // MARK: - Utils
     func getRemotePlayersNode() -> SKNode? {
         return self.childNode(withName: "remotePlayersNode")
+    }
+    
+    
+    
+    // MARK: - Touch callbacks
+    
+    func touchDown(atPoint pos : CGPoint) {
+        
+    }
+    
+    func touchMoved(toPoint pos : CGPoint) {
+
+    }
+    
+    func touchUp(atPoint pos : CGPoint) {
+        
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        for t in touches { self.touchDown(atPoint: t.location(in: self.view)) }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
 }

@@ -9,19 +9,10 @@
 import Foundation
 import CoreGraphics
 
-enum NotificationName {
-    case joinedGame
-    case playerUpdated
-}
 
 
 class ConnectionFacade{
     static let instance = ConnectionFacade()
-    
-    static let Notifications: [NotificationName: NSNotification.Name]  = [
-        NotificationName.joinedGame : NSNotification.Name("joinedGame"),
-        .playerUpdated: NSNotification.Name("playerUpdated")
-    ]
     
     var connection: Connection!
     var privateId: String!

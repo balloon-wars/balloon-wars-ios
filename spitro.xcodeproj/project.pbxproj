@@ -22,6 +22,10 @@
 		7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD70232BDE2600212A1C /* SKSceneExtensions.swift */; };
 		7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */; };
 		7ABFF0852332AE5B0058B918 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D70AAE6123AE8C72007654DA /* NetworkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6023AE8C72007654DA /* NetworkGame.swift */; };
+		D70AAE6323AE8CB6007654DA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6223AE8CB6007654DA /* Game.swift */; };
+		D70AAE6523AE8CD9007654DA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6423AE8CD9007654DA /* Player.swift */; };
+		D70AAE6723AE8CEC007654DA /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6623AE8CEC007654DA /* Position.swift */; };
 		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
 		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
 		D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C12233351B600D6A561 /* PlayerNode.swift */; };
@@ -47,6 +51,10 @@
 		7A9ECD71232BDE2600212A1C /* CGPointVectorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointVectorExtensions.swift; sourceTree = "<group>"; };
 		8DB365575DADC75803876A1F /* Pods_spitro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spitro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B2635CF59390E4ECA4358 /* Pods-spitro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spitro.release.xcconfig"; path = "Target Support Files/Pods-spitro/Pods-spitro.release.xcconfig"; sourceTree = "<group>"; };
+		D70AAE6023AE8C72007654DA /* NetworkGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGame.swift; sourceTree = "<group>"; };
+		D70AAE6223AE8CB6007654DA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		D70AAE6423AE8CD9007654DA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D70AAE6623AE8CEC007654DA /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D70CFAF02332811400147700 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D70CFAF2233281CF00147700 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		D7CB1C12233351B600D6A561 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 		7A6814992329728600A1BB2D /* spitro */ = {
 			isa = PBXGroup;
 			children = (
+				D70AAE5F23AE8C59007654DA /* model */,
 				D7F41279233184CE00B7E255 /* networking */,
 				7A68149A2329728600A1BB2D /* AppDelegate.swift */,
 				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
@@ -130,6 +139,17 @@
 				7A3906262332BE7F00A765D4 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D70AAE5F23AE8C59007654DA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D70AAE6023AE8C72007654DA /* NetworkGame.swift */,
+				D70AAE6223AE8CB6007654DA /* Game.swift */,
+				D70AAE6423AE8CD9007654DA /* Player.swift */,
+				D70AAE6623AE8CEC007654DA /* Position.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		D7F41279233184CE00B7E255 /* networking */ = {
@@ -260,6 +280,7 @@
 				7A3906272332BE7F00A765D4 /* UIDeviceExtensions.swift in Sources */,
 				7ABFF0852332AE5B0058B918 /* (null) in Sources */,
 				7A9ECD6C232BDB6500212A1C /* SKCameraMode.swift in Sources */,
+				D70AAE6123AE8C72007654DA /* NetworkGame.swift in Sources */,
 				7A9ECD6B232BDB6500212A1C /* SKCameraController.swift in Sources */,
 				7A6814A32329728600A1BB2D /* GameViewController.swift in Sources */,
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
@@ -268,8 +289,11 @@
 				D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */,
 				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,
 				7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */,
+				D70AAE6323AE8CB6007654DA /* Game.swift in Sources */,
 				D70CFAF12332811400147700 /* StringExtensions.swift in Sources */,
 				7A6814B523297E9100A1BB2D /* TLAnalogJoystick.swift in Sources */,
+				D70AAE6523AE8CD9007654DA /* Player.swift in Sources */,
+				D70AAE6723AE8CEC007654DA /* Position.swift in Sources */,
 				D70CFAF3233281CF00147700 /* Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
