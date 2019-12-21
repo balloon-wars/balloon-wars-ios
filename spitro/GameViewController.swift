@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
         scene.backgroundColor = .white
         scene.viewController = self
         self.gameScene = scene
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: GAME_UPDATE_NOTIFICATION_NAME, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: ConnectionFacade.Notifications[.playerUpdated], object: nil)
     }
     
@@ -46,16 +48,10 @@ class GameViewController: UIViewController {
     }
     
     @objc func onUpdate(_ notification: NSNotification){
-        guard let update = notification.userInfo?["updates"] as? PlayerUpdate else { return }
-        print("Player", update)
+        guard let update = notification.userInfo?["game"] as? NetworkGame else { return }
         
-        if !self.remotePlayers.map({$0.remotePlayerId}).contains(update.id) {
-            let newPlayer = RemotePlayerNode(playerId:  update.id, color: UIColor.green)
-            self.gameScene.addChild(newPlayer)
-            self.remotePlayers.append(newPlayer)
-        }
+        print("update", update)
         
-        self.gameScene.updatePlayer(update)
     }
     
     

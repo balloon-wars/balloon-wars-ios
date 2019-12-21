@@ -9,6 +9,8 @@
 import Foundation
 import SocketIO
 
+let GAME_UPDATE_NOTIFICATION_NAME = NSNotification.Name("gameUpdate")
+
 class _Position: Codable {
     var x: Float
     var y: Float
@@ -102,7 +104,7 @@ class NetworkGame: Codable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
-        self.lastUpdate = try container.decode(Date.self, forKey: .lastUpdate)
+        self.lastUpdate = try container.decode(String.self, forKey: .lastUpdate)
         self.game = try container.decode(_Game.self, forKey: .game)
     }
     
@@ -114,7 +116,7 @@ class NetworkGame: Codable {
     }
     
     
-    var lastUpdate: Date!
+    var lastUpdate: String!
     var game: _Game!
 }
 
@@ -131,9 +133,10 @@ class Connection {
         }
 
         socket.on("gameUpdate") {data, ack in
-            
-            print("Got a game update", data)
-            
+            print("TYPE IS", type(of: data[0]))
+            self.onGameUpdate(data[0] as! String)
+//            print("Got a game update", data as! [[String: Any]])
+//            self.onGameUpdate()
         }
         
         socket.connect()
@@ -141,7 +144,10 @@ class Connection {
     }
     
     private func onGameUpdate(_ json: String){
+        print("Json is", json)
         let newGame = try! JSONDecoder().decode(NetworkGame.self, from: json.data(using: .utf8)!)
+        
+        NotificationCenter.default.post(name: GAME_UPDATE_NOTIFICATION_NAME, object: nil, userInfo: ["game": newGame])
     }
     
     func getSocket() -> SocketIOClient {

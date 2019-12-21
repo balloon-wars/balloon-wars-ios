@@ -180,6 +180,10 @@ class GameScene: SKScene {
 ////        print("Updated")
     }
     
+    func updateGame(_ newGame: NetworkGame) {
+        
+    }
+    
     func updateRemotePlayers(){
         
         for node in self.children{
