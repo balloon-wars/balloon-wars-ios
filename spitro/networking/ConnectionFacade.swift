@@ -23,6 +23,7 @@ class ConnectionFacade{
         .playerUpdated: NSNotification.Name("playerUpdated")
     ]
     
+    var connection: Connection!
     var privateId: String!
     var roomId: String?
     
@@ -56,8 +57,18 @@ class ConnectionFacade{
     }
     
     func setupConnection() {
+        self.connection = Connection()
         
+        self.connection.setupConnections()
         
+    }
+    
+    func updateDirection(to: Any) {
+        self.connection.emit("directionChanged", message: [to])
+    }
+    
+    func updateSpeed(to: Any) {
+         self.connection.emit("speedChanged", message: [to])
     }
     
     func disconnect(){

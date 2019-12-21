@@ -33,7 +33,7 @@ class GameScene: SKScene {
         self.mapBounds = CGRect(x: 0, y: 0, width: mapWidth, height: mapHeight)
         
         let backgroundNode = SKShapeNode(rect: mapBounds)
-        backgroundNode.fillTexture = SKTexture(image: UIImage(named: "map")!)
+//        backgroundNode.fillTexture = SKTexture(image: UIImage(named: "map")!)
         backgroundNode.fillColor = .white
         
         self.addChild(backgroundNode)
@@ -89,9 +89,10 @@ class GameScene: SKScene {
         
         moveJoystick.on(.move) { [unowned self] joystick in
             let pVelocity = joystick.velocity
-            let speed = CGFloat(0.12)
-            
-            self.playerNode.updatePlayer(velocity: pVelocity, rotation: joystick.angular)
+//            let speed = CGFloat(0.12)
+            print("Velocity is", joystick.angular, pVelocity)
+            ConnectionFacade.instance.updateDirection(to: joystick.angular)
+//            self.playerNode.updatePlayer(velocity: pVelocity, rotation: joystick.angular)
         }
         
         moveJoystick.on(.end) { [unowned self] _ in
@@ -113,13 +114,13 @@ class GameScene: SKScene {
         self.setupCamera()
         self.setupFire(on: view)
         self.setupJoystick()
+        
+        
     }
 
     
     func touchDown(atPoint pos : CGPoint) {
-//        if fireNode.contains(pos) {
-//            print("1")
-//        }
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -127,7 +128,7 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-
+        
     }
     
     
@@ -158,30 +159,35 @@ class GameScene: SKScene {
     var lastRemoteUpdate: TimeInterval?
     
     override func update(_ currentTime: TimeInterval) {
-        guard let cameraController = self.cameraController else { return }
-        cameraController.updateCamera()
-        self.playerNode.update()
-        self.updateRemotePlayers()
-        
-        if let last = self.lastRemoteUpdate{
-            let timeDiff = currentTime - last
-            
-            if timeDiff > 1/30{
-                self.playerNode.delegatePlayerUpdate()
-                self.lastRemoteUpdate = currentTime
-            }
-        } else {
-            self.playerNode.delegatePlayerUpdate()
-            self.lastRemoteUpdate = currentTime
-        }
+//        print("Updating")
+//        guard let cameraController = self.cameraController else { return }
+//        cameraController.updateCamera()
+//        self.playerNode.update()
+//        self.updateRemotePlayers()
+//
+//        if let last = self.lastRemoteUpdate{
+//            let timeDiff = currentTime - last
+//
+//            if timeDiff > 1/30{
+//                self.playerNode.delegatePlayerUpdate()
+//                self.lastRemoteUpdate = currentTime
+//            }
+//        } else {
+//            self.playerNode.delegatePlayerUpdate()
+//            self.lastRemoteUpdate = currentTime
+//        }
+//
+////        print("Updated")
     }
     
     func updateRemotePlayers(){
+        
         for node in self.children{
             if let pNode = node as? PlayerNode{
                 pNode.update()
             }
         }
+        
     }
     
     

@@ -5,7 +5,8 @@ target 'spitro' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Starscream', '~> 3.0.2'
+
+    pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   # Pods for spitro
 
 end

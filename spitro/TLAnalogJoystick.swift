@@ -234,7 +234,7 @@ open class TLAnalogJoystick: SKNode {
 	
 	public var angular: CGFloat {
 		let velocity = self.velocity
-		return -atan2(velocity.x, velocity.y)
+		return atan2(velocity.y, velocity.x)
 	}
     
     public var disabled: Bool {
@@ -406,6 +406,9 @@ open class TLAnalogJoystick: SKNode {
         }
 		
 		tracking = true
+        
+        
+        ConnectionFacade.instance.updateSpeed(to: 0.05)
     }
     
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -434,6 +437,8 @@ open class TLAnalogJoystick: SKNode {
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         tracking = false
+        
+        ConnectionFacade.instance.updateSpeed(to: 0)
     }
     
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

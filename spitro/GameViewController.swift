@@ -8,6 +8,7 @@ class GameViewController: UIViewController {
     var remotePlayers: [RemotePlayerNode]! = [RemotePlayerNode]()
     
     override func viewDidLoad() {
+        ConnectionFacade.instance.setupConnection()
         super.viewDidLoad()
         print("SIZE IS", self.view.bounds.size)
         self.view.backgroundColor = UIColor.white
@@ -15,8 +16,7 @@ class GameViewController: UIViewController {
         scene.backgroundColor = .white
         scene.viewController = self
         self.gameScene = scene
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: ConnectionFacade.Notifications[.playerUpdated], object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: ConnectionFacade.Notifications[.playerUpdated], object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
