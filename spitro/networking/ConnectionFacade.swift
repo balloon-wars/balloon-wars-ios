@@ -40,7 +40,11 @@ class ConnectionFacade{
     func updateSpeed(to: Any) {
          self.connection.emit("speedChanged", message: [to])
     }
-        
+    
+    func attack() {
+        self.connection.emit("startAttack", message: ["no message"])
+    }
+    
     func getCurrentPlayerId() -> String {
         return self.connection.getSocket().sid
     }

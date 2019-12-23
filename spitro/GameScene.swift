@@ -117,8 +117,8 @@ class GameScene: SKScene {
     // MARK: - Attack
     
     func attack(){
-        
-        self.playerNode.gunNode.run(.sequence([.moveBy(x: 0, y: 100, duration: 0.5), .moveBy(x: 0, y: -100, duration: 0.5)]))
+        ConnectionFacade.instance.attack()
+//        self.playerNode.gunNode.run(.sequence([.moveBy(x: 0, y: 100, duration: 0.5), .moveBy(x: 0, y: -100, duration: 0.5)]))
     }
     
     @objc func onFire(_ sender: Any){
@@ -173,6 +173,11 @@ class GameScene: SKScene {
             
             playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction) - (CGFloat.pi / 2))
             
+            playerNode.updateNeedle(position: player.needle.offset.getCGPoint())
+            
+            if player.needle.position.x != 0 {
+                print("----------")
+            }
         }
     }
     

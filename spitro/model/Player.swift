@@ -13,6 +13,7 @@ class Player: Codable {
     var position: Position
     var direction: Float
     var speed: Float
+    var needle: Needle
     
     enum Keys: String, CodingKey {
         
@@ -20,6 +21,7 @@ class Player: Codable {
         case position = "position"
         case direction = "direction"
         case speed = "speed"
+        case needle
         
     }
     
@@ -30,6 +32,8 @@ class Player: Codable {
         self.position = try container.decode(Position.self, forKey: .position)
         self.direction = try container.decode(Float.self, forKey: .direction)
         self.speed = try container.decode(Float.self, forKey: .speed)
+        
+        self.needle = try container.decode(Needle.self, forKey: .needle)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -39,6 +43,7 @@ class Player: Codable {
         try container.encode(self.position, forKey: .position)
         try container.encode(self.direction, forKey: .direction)
         try container.encode(self.speed, forKey: .speed)
+        try container.encode(self.needle, forKey: .needle)
     }
     
 }

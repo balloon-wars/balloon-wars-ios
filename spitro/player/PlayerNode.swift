@@ -31,7 +31,7 @@ class PlayerNode: SKSpriteNode {
         self.gunNode = SKShapeNode(circleOfRadius: 20)
         self.gunNode.position  = CGPoint(x: 0, y: self.size.height / 2)
         self.gunNode.zPosition = 1000
-        self.gunNode.fillColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.gunNode.fillColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
         self.addChild(self.gunNode)
     }
@@ -62,6 +62,11 @@ class PlayerNode: SKSpriteNode {
         
 //        self.angularRotation = newRotation
 //        self.velocity = newVelocity
+    }
+    
+    func updateNeedle(position: CGPoint ) {
+        print("-------> Setting needle position", position)
+        self.gunNode.position = position
     }
     
 }
