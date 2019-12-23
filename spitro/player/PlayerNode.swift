@@ -10,7 +10,7 @@ import SpriteKit
 
 class PlayerNode: SKSpriteNode {
 
-    var gunNode: SKShapeNode!
+//    var gunNode: SKShapeNode!
     var velocity: CGPoint?
     var angularRotation: CGFloat?
     
@@ -25,15 +25,7 @@ class PlayerNode: SKSpriteNode {
         
         self.remotePlayerId = playerId
         self.name = playerId
-//        self.physicsBody = SKPhysicsBody(texture: texture, size: self.size)
-//        self.physicsBody?.affectedByGravity = false
         
-        self.gunNode = SKShapeNode(circleOfRadius: 20)
-        self.gunNode.position  = CGPoint(x: 0, y: self.size.height / 2)
-        self.gunNode.zPosition = 1000
-        self.gunNode.fillColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
-        
-        self.addChild(self.gunNode)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -9,7 +9,7 @@
 import Foundation
 
 class Player: Codable {
-    var id: String
+    private var id: String
     var position: Position
     var direction: Float
     var speed: Float
@@ -46,5 +46,13 @@ class Player: Codable {
         try container.encode(self.needle, forKey: .needle)
     }
     
+    
+    func getNodeName() -> String {
+        return "player" + self.id
+    }
+    
+    func getNeedleNodeName() -> String {
+        return "needle" + self.id
+    }
 }
 

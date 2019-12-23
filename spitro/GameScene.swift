@@ -6,6 +6,7 @@ class GameScene: SKScene {
     var moveJoystickHiddenArea: TLAnalogJoystickHiddenArea!
     var playerNode: PlayerNode!
     let remotePlayersNode = SKNode()
+    let needlesNode = SKNode()
     
     lazy var fireNode: UIView = {
         let view = UIView()
@@ -74,23 +75,13 @@ class GameScene: SKScene {
             self.moveJoystick.alpha = 0.3132
             
             self.cameraController.node.addChild(moveJoystickHiddenArea)
-            
-            moveJoystick.on(.begin) { [unowned self] _ in
-    //            self.playerNode.needsUpdate = true
-            }
-            
+        
             moveJoystick.on(.move) { [unowned self] joystick in
-                let pVelocity = joystick.velocity
-    //            let speed = CGFloat(0.12)
-    //            print("Velocity is", joystick.angular, pVelocity)
                 ConnectionFacade.instance.updateDirection(to: joystick.angular)
-    //            self.playerNode.updatePlayer(velocity: pVelocity, rotation: joystick.angular)
             }
             
             moveJoystick.on(.end) { [unowned self] _ in
                 self.playerNode.velocity = .zero
-    //            self.playerNode.delegatePlayerUpdate()
-    //            self.playerNode.needsUpdate = false
             }
 
         }
@@ -101,9 +92,12 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         view.isMultipleTouchEnabled = true
         backgroundColor = .white
-
+        
         self.remotePlayersNode.name = "remotePlayersNode"
+        self.needlesNode.name = "needlesNode"
+        
         self.addChild(self.remotePlayersNode)
+        self.addChild(self.needlesNode)
         
         self.setupMap()
         self.setupCamera()
@@ -124,52 +118,37 @@ class GameScene: SKScene {
     @objc func onFire(_ sender: Any){
         self.attack()
     }
-    
-    // MARK: - Updates
-    
-    override func update(_ currentTime: TimeInterval) {
-        guard let cameraController = self.cameraController else { return }
-        cameraController.updateCamera()
-    }
-    
 
-    func updateGame(to newGame: Game) {
-        guard let remotePlayersNode = self.getRemotePlayersNode() else { return }
-        
-        let existingPlayers =
-            remotePlayersNode.children.map({ (node) -> String in
-            return node.name ?? ""
-            }).filter { (s) -> Bool in
-                return s != ""
-        }
-        
-        
-        let newPlayers = newGame.players.filter { (player) -> Bool in
-            return !existingPlayers.contains(player.id)
-        }
-        
-        let playerNames = newGame.players.map { (p) -> String in
-            return p.id
-        }
+    // MARK: - Update helpers
+
+    func clearPlayerNodes(_ existingPlayers: [String], _ playerNames: [String]) {
         
         for player in existingPlayers {
             if !playerNames.contains(player) {
                 remotePlayersNode.childNode(withName: player)?.removeFromParent()
             }
         }
+
+    }
+    
+    func createNewPlayers(_ newPlayers: [Player]) {
         
         for player in newPlayers {
-            let newPlayer = PlayerNode(playerId: player.id, color: .blue)
-            if player.id == ConnectionFacade.instance.getCurrentPlayerId() {
+            let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .blue)
+            let newNeedle = NeedleNode()
+            if player.getNodeName() == ConnectionFacade.instance.getCurrentPlayerId() {
+            
                 self.playerNode = newPlayer
-
                 self.setupPlayer()
             }
             remotePlayersNode.addChild(newPlayer)
         }
+    }
+    
+    func updatePlayers(_ newGame: Game) {
         
         for player in newGame.players {
-            guard let playerNode = remotePlayersNode.childNode(withName: player.id) as? PlayerNode else { return }
+            guard let playerNode = remotePlayersNode.childNode(withName: player.getNodeName()) as? PlayerNode else { return }
             
             playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction) - (CGFloat.pi / 2))
             
@@ -181,11 +160,49 @@ class GameScene: SKScene {
         }
     }
     
+    // MARK: - Updates
+    
+    override func update(_ currentTime: TimeInterval) {
+        guard let cameraController = self.cameraController else { return }
+        cameraController.updateCamera()
+    }
+
+    
+    func updateGame(to newGame: Game) {
+        
+        guard let remotePlayersNode = self.getRemotePlayersNode() else { return }
+        
+        let existingPlayers =
+            remotePlayersNode.children.map({ (node) -> String in
+            return node.name ?? ""
+            }).filter { (s) -> Bool in
+                return s != ""
+        }
+        
+        
+        let newPlayers = newGame.players.filter { (player) -> Bool in
+            return !existingPlayers.contains(player.getNodeName())
+        }
+        
+        let playerNames = newGame.players.map { (p) -> String in
+            return p.getNodeName()
+        }
+        
+        self.clearPlayerNodes(existingPlayers, playerNames)
+        self.createNewPlayers(newPlayers)
+        self.updatePlayers(newGame)
+        
+    }
+    
     // MARK: - Utils
+    
     func getRemotePlayersNode() -> SKNode? {
         return self.childNode(withName: "remotePlayersNode")
     }
     
+    func getNeedlesNode() -> SKNode? {
+        return self.childNode(withName: "needlesNode")
+    }
     
     
     // MARK: - Touch callbacks

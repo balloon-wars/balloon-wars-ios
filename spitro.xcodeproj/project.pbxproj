@@ -29,6 +29,7 @@
 		D70AAE6B23AEEC16007654DA /* Needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70AAE6A23AEEC16007654DA /* Needle.swift */; };
 		D70CFAF12332811400147700 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF02332811400147700 /* StringExtensions.swift */; };
 		D70CFAF3233281CF00147700 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFAF2233281CF00147700 /* Connection.swift */; };
+		D79913EF23B0682900882837 /* NeedleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79913EE23B0682900882837 /* NeedleNode.swift */; };
 		D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CB1C12233351B600D6A561 /* PlayerNode.swift */; };
 		D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F412802331913700B7E255 /* ConnectionFacade.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		D70AAE6A23AEEC16007654DA /* Needle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Needle.swift; sourceTree = "<group>"; };
 		D70CFAF02332811400147700 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D70CFAF2233281CF00147700 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		D79913EE23B0682900882837 /* NeedleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleNode.swift; sourceTree = "<group>"; };
 		D7CB1C12233351B600D6A561 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		D7F412802331913700B7E255 /* ConnectionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFacade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 				D70AAE6823AE8D42007654DA /* camera */,
 				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
 				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
+				D79913EE23B0682900882837 /* NeedleNode.swift */,
 			);
 			path = player;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				7A9ECD75232BDE2600212A1C /* SKSceneExtensions.swift in Sources */,
 				7A9ECD73232BDE2600212A1C /* SKNodeExtensions.swift in Sources */,
 				7A68149B2329728600A1BB2D /* AppDelegate.swift in Sources */,
+				D79913EF23B0682900882837 /* NeedleNode.swift in Sources */,
 				D7CB1C13233351B600D6A561 /* PlayerNode.swift in Sources */,
 				D7F412812331913700B7E255 /* ConnectionFacade.swift in Sources */,
 				7A9ECD76232BDE2600212A1C /* CGPointVectorExtensions.swift in Sources */,
