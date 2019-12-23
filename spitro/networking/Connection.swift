@@ -18,8 +18,8 @@ class Connection {
         "http://192.168.100.27:3000")!,
                                 
 //        "https://balloon-wars-server.herokuapp.com")!,
-    config: [.log(true), .compress])
-
+        config: [.log(true), .compress, .forceNew(true), .reconnects(true)])
+    
     
     func setupConnections() {
         let socket = getSocket()

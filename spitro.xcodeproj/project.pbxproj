@@ -168,8 +168,8 @@
 			children = (
 				D70AAE6823AE8D42007654DA /* camera */,
 				D7CB1C12233351B600D6A561 /* PlayerNode.swift */,
-				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
 				D79913EE23B0682900882837 /* NeedleNode.swift */,
+				7A6814B423297E9100A1BB2D /* TLAnalogJoystick.swift */,
 			);
 			path = player;
 			sourceTree = "<group>";

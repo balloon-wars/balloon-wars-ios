@@ -9,7 +9,7 @@
 import Foundation
 
 class Player: Codable {
-    private var id: String
+    var id: String
     var position: Position
     var direction: Float
     var speed: Float

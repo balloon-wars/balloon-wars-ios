@@ -75,7 +75,11 @@ class GameScene: SKScene {
             self.moveJoystick.alpha = 0.3132
             
             self.cameraController.node.addChild(moveJoystickHiddenArea)
-        
+            
+            moveJoystick.on(.begin) { [unowned self] _ in
+    //            self.playerNode.needsUpdate = true
+            }
+            
             moveJoystick.on(.move) { [unowned self] joystick in
                 ConnectionFacade.instance.updateDirection(to: joystick.angular)
             }
@@ -135,28 +139,37 @@ class GameScene: SKScene {
         
         for player in newPlayers {
             let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .blue)
-            let newNeedle = NeedleNode()
-            if player.getNodeName() == ConnectionFacade.instance.getCurrentPlayerId() {
+            let newNeedle = NeedleNode(player.getNeedleNodeName(), circleOfRadius: 20)
+                
+            if player.id == ConnectionFacade.instance.getCurrentPlayerId() {
             
                 self.playerNode = newPlayer
                 self.setupPlayer()
             }
-            remotePlayersNode.addChild(newPlayer)
+            
+            self.needlesNode.addChild(newNeedle)
+            self.remotePlayersNode.addChild(newPlayer)
         }
     }
     
     func updatePlayers(_ newGame: Game) {
-        
         for player in newGame.players {
             guard let playerNode = remotePlayersNode.childNode(withName: player.getNodeName()) as? PlayerNode else { return }
             
             playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction) - (CGFloat.pi / 2))
             
-            playerNode.updateNeedle(position: player.needle.offset.getCGPoint())
-            
             if player.needle.position.x != 0 {
                 print("----------")
             }
+        }
+    }
+    
+    func updateNeedles(_ newGame: Game){
+        for player in newGame.players {
+            
+            guard let needleNode = needlesNode.childNode(withName: player.getNeedleNodeName()) as? NeedleNode else { return }
+            
+            needleNode.updateNeedle(position: player.needle.position.getCGPoint())
         }
     }
     
@@ -191,6 +204,7 @@ class GameScene: SKScene {
         self.clearPlayerNodes(existingPlayers, playerNames)
         self.createNewPlayers(newPlayers)
         self.updatePlayers(newGame)
+        self.updateNeedles(newGame)
         
     }
     
