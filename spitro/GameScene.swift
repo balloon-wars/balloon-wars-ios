@@ -74,7 +74,7 @@ class GameScene: SKScene {
     func createNewPlayers(_ newPlayers: [Player]) {
         
         for player in newPlayers {
-            let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .blue)
+            let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .cyan, circleOfRadius: CGFloat(player.radius))
             let newNeedle = NeedleNode(player.getNeedleNodeName(), circleOfRadius: 20)
                 
             if player.id == ConnectionFacade.instance.getCurrentPlayerId() {

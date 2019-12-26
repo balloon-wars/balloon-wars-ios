@@ -8,20 +8,21 @@
 
 import SpriteKit
 
-class PlayerNode: SKSpriteNode {
+class PlayerNode: SKShapeNode {
 
-//    var gunNode: SKShapeNode!
     var velocity: CGPoint?
     var angularRotation: CGFloat?
     
     var remotePlayerId: String!
     
-    init(playerId: String, color: UIColor, size: CGSize = CGSize(width: 200, height: 200)) {
+    init(playerId: String, color: UIColor, circleOfRadius radius: CGFloat) {
         
+//        super.init(texture: nil, color: .orange, size: size)
+        super.init()
         
-//        let texture = SKTexture(image: UIImage(named: "balloon")!)
-        
-        super.init(texture: nil, color: .orange, size: size)
+        let rect = CGRect(x:-radius,y:-radius,width:radius * 2,height:radius * 2)
+        self.path = CGPath(ellipseIn: rect, transform: nil)
+        self.fillColor = color
         
         self.remotePlayerId = playerId
         self.name = playerId
