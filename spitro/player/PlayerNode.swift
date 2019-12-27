@@ -34,10 +34,11 @@ class PlayerNode: SKShapeNode {
     }
 
     
-    func updatePlayer(velocity newVelocity: CGPoint, rotation newRotation: CGFloat){
+    func updatePlayer(velocity newVelocity: CGPoint, rotation newRotation: CGFloat, scale: Float){
         
         self.position = newVelocity
         self.zRotation = newRotation
+        self.setScale(CGFloat(scale))
         
     }
     

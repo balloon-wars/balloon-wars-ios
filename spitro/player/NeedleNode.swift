@@ -31,8 +31,8 @@ class NeedleNode: SKShapeNode {
     
     
     
-    func updateNeedle(position: CGPoint ) {
-        
+    func updateNeedle(position: CGPoint, scale: Float ) {
         self.position = position
+        self.setScale(CGFloat(scale))
     }
 }
