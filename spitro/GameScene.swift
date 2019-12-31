@@ -51,7 +51,7 @@ class GameScene: SKScene {
     // MARK: - Attack
     
     func attack(){
-        ConnectionFacade.instance.attack()
+        GameConnectionService.attack()
     }
     
     @objc func onFire(_ sender: Any){
@@ -60,6 +60,7 @@ class GameScene: SKScene {
 
     // MARK: - Update helpers
 
+    /// - Removes nodes from players that disconnected from the server
     func clearPlayerNodes(_ existingPlayers: [Player], _ playerNames: [String]) {
         
         for player in existingPlayers {
@@ -71,13 +72,14 @@ class GameScene: SKScene {
 
     }
     
+    /// Creates nodes for players that just joined
     func createNewPlayers(_ newPlayers: [Player]) {
         
         for player in newPlayers {
             let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .cyan, circleOfRadius: CGFloat(player.radius))
             let newNeedle = NeedleNode(player.getNeedleNodeName(), circleOfRadius: 20)
                 
-            if player.id == ConnectionFacade.instance.getCurrentPlayerId() {
+            if player.id == Connection.getCurrentPlayerId() {
             
                 self.playerNode = newPlayer
                 self.setupPlayer()
@@ -88,6 +90,7 @@ class GameScene: SKScene {
         }
     }
     
+    /// Updates all player nodes to match players in the backend
     func updatePlayers(_ newGame: Game) {
         for player in newGame.players {
             guard let playerNode = remotePlayersNode.childNode(withName: player.getNodeName()) as? PlayerNode else { return }
@@ -97,6 +100,8 @@ class GameScene: SKScene {
         }
     }
     
+    
+    /// Updatews all needle nodes to match needles in the backend
     func updateNeedles(_ newGame: Game){
         for player in newGame.players {
             
@@ -119,7 +124,7 @@ class GameScene: SKScene {
         
         let existingPlayers =
             remotePlayersNode.children.map({ (node) -> String in
-            return node.name ?? ""
+                return node.name ?? ""
             }).filter { (s) -> Bool in
                 return s != ""
         }
@@ -196,18 +201,13 @@ class GameScene: SKScene {
             self.mapBounds = CGRect(x: 0, y: 0, width: mapWidth, height: mapHeight)
             
             let backgroundNode = SKShapeNode(rect: mapBounds)
-    //        backgroundNode.fillTexture = SKTexture(image: UIImage(named: "map")!)
             backgroundNode.fillColor = .white
             
             self.addChild(backgroundNode)
         }
         
         func setupPlayer() {
-    //        physicsBody = SKPhysicsBody(edgeLoopFrom: mapBounds)
-            
             self.playerNode.position = CGPoint(x: frame.midX, y: frame.midY)
-    //        self.addChild(self.playerNode)
-            
             self.cameraController.startFollowing(target: playerNode)
             camera?.setScale(2)
         }
@@ -241,10 +241,11 @@ class GameScene: SKScene {
                 
                 moveJoystick.on(.begin) { [unowned self] _ in
         //            self.playerNode.needsUpdate = true
+                    
                 }
                 
                 moveJoystick.on(.move) { [unowned self] joystick in
-                    ConnectionFacade.instance.updateDirection(to: joystick.angular)
+                    GameConnectionService.updateDirection(to: joystick.angular)
                 }
                 
                 moveJoystick.on(.end) { [unowned self] _ in

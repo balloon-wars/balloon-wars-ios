@@ -8,16 +8,18 @@ class GameViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        ConnectionFacade.instance.setupConnection()
+        ConnectionManager.instance.setup()
+//        ConnectionFacade.instance.setupConnection()
         super.viewDidLoad()
-        print("SIZE IS", self.view.bounds.size)
+        
         self.view.backgroundColor = UIColor.white
         let scene = GameScene(size: self.view.bounds.size)
         scene.backgroundColor = .white
         scene.viewController = self
         self.gameScene = scene
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: GAME_UPDATE_NOTIFICATION_NAME, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: GAME_UPDATE_NOTIFICATION_NAME, object: nil)
+        EventBinder.bind(self, to: .gameUpdate, with: #selector(self.onUpdate(_:)))
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.onUpdate(_:)), name: ConnectionFacade.Notifications[.playerUpdated], object: nil)
     }
     
@@ -48,7 +50,7 @@ class GameViewController: UIViewController {
     }
     
     @objc func onUpdate(_ notification: NSNotification){
-        guard let update = notification.userInfo?["game"] as? NetworkGame else { return }
+        guard let update = notification.userInfo?["payload"] as? NetworkGame else { return }
         
         guard let game = update.game else { return }
         
