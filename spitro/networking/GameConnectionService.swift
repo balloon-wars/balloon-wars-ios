@@ -35,8 +35,6 @@ class GameConnectionService: ConnectionService {
         print("Ping from server", Calendar.current.dateComponents([.nanosecond], from: serverTs, to: Date()).nanosecond! / 1000000)
         
         
-//        NotificationCenter.default.post(name: GAME_UPDATE_NOTIFICATION_NAME, object: nil, userInfo: ["game": newGame])
-        
         EventBinder.trigger(event: .gameUpdate, payload: newGame)
     }
     
