@@ -74,7 +74,7 @@ class GameScene: SKScene {
     func createNewPlayers(_ newPlayers: [Player]) {
         
         for player in newPlayers {
-            let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .blue)
+            let newPlayer = PlayerNode(playerId: player.getNodeName(), color: .cyan, circleOfRadius: CGFloat(player.radius))
             let newNeedle = NeedleNode(player.getNeedleNodeName(), circleOfRadius: 20)
                 
             if player.id == ConnectionFacade.instance.getCurrentPlayerId() {
@@ -92,11 +92,8 @@ class GameScene: SKScene {
         for player in newGame.players {
             guard let playerNode = remotePlayersNode.childNode(withName: player.getNodeName()) as? PlayerNode else { return }
             
-            playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction))
-            
-            if player.needle.position.x != 0 {
-                print("----------")
-            }
+            playerNode.updatePlayer(velocity: player.position.getCGPoint(), rotation: CGFloat(player.direction), scale: player.scale)
+        
         }
     }
     
@@ -105,7 +102,7 @@ class GameScene: SKScene {
             
             guard let needleNode = needlesNode.childNode(withName: player.getNeedleNodeName()) as? NeedleNode else { return }
             
-            needleNode.updateNeedle(position: player.needle.position.getCGPoint())
+            needleNode.updateNeedle(position: player.needle.position.getCGPoint(), scale: player.scale)
         }
     }
     

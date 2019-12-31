@@ -15,6 +15,14 @@ class Player: Codable {
     var speed: Float
     var needle: Needle
     
+    var diameter: Float
+    var radius: Float {
+        return self.diameter * self.scale / 2
+    }
+    var life: Float
+    
+    var scale: Float
+    
     enum Keys: String, CodingKey {
         
         case id = "id"
@@ -22,6 +30,11 @@ class Player: Codable {
         case direction = "direction"
         case speed = "speed"
         case needle
+        case diameter = "diameter"
+//        case radius = "radius"
+        case life = "life"
+        
+        case scale = "scale"
         
     }
     
@@ -34,6 +47,12 @@ class Player: Codable {
         self.speed = try container.decode(Float.self, forKey: .speed)
         
         self.needle = try container.decode(Needle.self, forKey: .needle)
+        
+        self.diameter = try container.decode(Float.self, forKey: .diameter)
+//        self.radius = try container.decode(Float.self, forKey: .radius)
+        self.life = try container.decode(Float.self, forKey: .life)
+        
+        self.scale = try container.decode(Float.self, forKey: .scale)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -44,6 +63,12 @@ class Player: Codable {
         try container.encode(self.direction, forKey: .direction)
         try container.encode(self.speed, forKey: .speed)
         try container.encode(self.needle, forKey: .needle)
+        
+        try container.encode(self.diameter, forKey: .diameter)
+//        try container.encode(self.radius, forKey: .radius)
+        try container.encode(self.life, forKey: .life)
+        
+        try container.encode(self.scale, forKey: .scale)
     }
     
     
@@ -56,3 +81,4 @@ class Player: Codable {
     }
 }
 
+ 
