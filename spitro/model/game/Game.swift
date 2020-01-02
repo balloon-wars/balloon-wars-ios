@@ -30,4 +30,10 @@ class Game: Codable {
         
     }
     
+    func getOrderedScoreboard() -> [Player] {
+        return self.players.sorted { (p1, p2) -> Bool in
+            return p1.kills > p2.kills
+        }
+    }
+    
 }
