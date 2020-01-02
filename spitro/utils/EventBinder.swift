@@ -35,7 +35,7 @@ class EventBinder {
         
         NotificationCenter.default.addObserver(clasz, selector: callback, name: name.toNotificationName(), object: nil)
            
-       }
+    }
     
     static func trigger(event: Event) {
         NotificationCenter.default.post(name: event.toNotificationName(), object: nil)

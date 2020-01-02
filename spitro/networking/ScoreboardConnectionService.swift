@@ -22,7 +22,7 @@ class ScoreboardConnectionService: ConnectionService {
     }
     
     func onScoreboardUpdate(_ json: String) {
-        
+        print("Descolei um scoreboard!", json)
     }
     
 }

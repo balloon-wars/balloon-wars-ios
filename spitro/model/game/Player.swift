@@ -23,6 +23,8 @@ class Player: Codable {
     
     var scale: Float
     
+    var kills: Int
+    
     enum Keys: String, CodingKey {
         
         case id = "id"
@@ -33,8 +35,8 @@ class Player: Codable {
         case diameter = "diameter"
 //        case radius = "radius"
         case life = "life"
-        
         case scale = "scale"
+        case kills = "kills"
         
     }
     
@@ -53,6 +55,8 @@ class Player: Codable {
         self.life = try container.decode(Float.self, forKey: .life)
         
         self.scale = try container.decode(Float.self, forKey: .scale)
+        
+        self.kills = try container.decode(Int.self, forKey: .kills)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -69,6 +73,7 @@ class Player: Codable {
         try container.encode(self.life, forKey: .life)
         
         try container.encode(self.scale, forKey: .scale)
+        try container.encode(self.kills, forKey: .kills)
     }
     
     

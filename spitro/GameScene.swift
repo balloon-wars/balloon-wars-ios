@@ -249,7 +249,7 @@ class GameScene: SKScene {
                 }
                 
                 moveJoystick.on(.end) { [unowned self] _ in
-                    self.playerNode.velocity = .zero
+//                    self.playerNode.velocity = .zero
                 }
 
             }

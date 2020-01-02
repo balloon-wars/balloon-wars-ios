@@ -14,11 +14,20 @@ let GAME_UPDATE_NOTIFICATION_NAME = NSNotification.Name("gameUpdate")
 class Connection {
     
     static let manager = SocketManager(socketURL: URL(string:
-//        "http://192.168.100.27:5000"
-        "http://192.168.0.7:5000")!,
+        "http://192.168.100.27:5000")!,
+//        "http://192.168.0.7:5000")!,
                                 
 //        "https://balloon-wars-server.herokuapp.com")!,
-        config: [.log(true), .compress, .forceNew(true), .reconnects(true), .reconnectWait(1), .reconnectWaitMax(2), .reconnectAttempts(-1)])
+        
+        config: [
+//                .log(true),
+                .compress,
+                .forceNew(true),
+                .reconnects(true),
+                .reconnectWait(1),
+                .reconnectWaitMax(2),
+                .reconnectAttempts(-1)
+    ])
     
     
     static func connect() {
